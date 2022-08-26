@@ -45,11 +45,21 @@ DELPREV		=	$(UP)$(DELETE)\r
 CHECK		=	\xE2\x9C\x94
 CROSS		=	\xE2\x9D\x8C
 
+# DISPLAY
+HEAD_SIZE	=	32
+NAME_SIZE	=	$(shell NAME='$(NAME)'; printf "$${\#NAME}")
+PAD_WIDTH	=	$(shell printf "$$((($(HEAD_SIZE) - $(NAME_SIZE)) / 2))")
+PAD_PREC	=	$(shell printf "$$(($(PAD_WIDTH) / 2))")
+PAD_CHAR	=	\*
+PAD_STR		=	$(shell printf '$(PAD_CHAR)%.0s' {1..$(PAD_WIDTH)})
+LEFT_PAD	=	$(shell printf '%-*.*s' $(PAD_WIDTH) $(PAD_PREC) $(PAD_STR))
+RIGHT_PAD	=	$(shell printf '%*.*s' $$(($(PAD_WIDTH) + $(NAME_SIZE) % 2)) $(PAD_PREC) $(PAD_STR))
+BODY_WIDTH	=	$(shell printf "$$(($(HEAD_SIZE) - 1))")
+
 
 ###########
 ## Rules ##
 ###########
-
 
 .PHONY:			all bonus clean fclean header lib re verbose
 

@@ -4,8 +4,6 @@
 # include <iostream>
 # include <ncurses.h>
 
-namespace wordle {
-
 class Window
 {
 
@@ -16,7 +14,5 @@ public:
 	WINDOW*			stdscr;
 
 };
-
-} // wordle
 
 #endif
