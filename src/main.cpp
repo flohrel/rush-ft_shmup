@@ -14,7 +14,7 @@
 int return_random(int lower, int upper)
 {
     int num;
-	srand(time(0));
+
 	num = (rand() % (upper - lower + 1)) + lower;
 	return (num);
 }
@@ -31,6 +31,7 @@ int main()
 	int				choice;
 	int				highlight = 0;
 
+	srand(time(0));
 	box(window.main, 0, 0);
 	getmaxyx(window.main, ymax, xmax);
 	menu = newwin(13, 55, 2, xmax / 2 - 26);
