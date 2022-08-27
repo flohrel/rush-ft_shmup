@@ -6,7 +6,6 @@
 # include <cstring>
 # include <ncurses.h>
 # include <string>
-using namespace std;
 # include <locale.h>
 # include <unistd.h>
 
@@ -22,13 +21,13 @@ int main()
 {
 	setlocale(LC_ALL, "");
 
-	Window	window;
-	WINDOW	*menu;
-	int		xmax;
-	int		ymax;
-	string 	choices[2] {"NEW GAME", "  EXIT  "};
-	int		choice;
-	int		highlight = 0;
+	Window			window;
+	WINDOW			*menu;
+	int				xmax;
+	int				ymax;
+	std::string 	choices[2] {"NEW GAME", "  EXIT  "};
+	int				choice;
+	int				highlight = 0;
 
 	box(window.main, 0, 0);
 	getmaxyx(window.main, ymax, xmax);
