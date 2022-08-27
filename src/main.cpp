@@ -24,10 +24,10 @@ int main()
 	int		choice;
 	int		highlight = 0;
 
-	box(window.main, 0 , 0);
+	box(window.main, 0, 0);
 	getmaxyx(window.main, ymax, xmax);
-	menu = newwin(13, 55, 1, xmax / 2 - 26);
-	box(menu, 0, 0);
+	menu = newwin(13, 55, 2, xmax / 2 - 26);
+	box(menu, '*', '*');
 	wrefresh(window.main);
 	mvwprintw(menu, 1, 1, "  _____  __            .__                           ");
 	mvwprintw(menu, 2, 1, "_/ ____\\/  |_     _____|  |__   _____  __ ________   ");
