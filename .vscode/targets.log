@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Sat Aug 27 13:39:38 2022
+# Make data base, printed on Sat Aug 27 16:26:16 2022
 
 # Variables
 
@@ -19,17 +19,17 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 DESKTOP_SESSION = ubuntu
 # default
 .SHELLFLAGS := -c
-# makefile (from 'Makefile', line 17)
+# makefile (from 'Makefile', line 20)
 OBJ = $(SRC:%.cpp=$(BUILDIR)/%.o)
 # environment
 XDG_SESSION_CLASS = user
 # makefile (from 'Makefile', line 14)
-SRC = Window.cpp Entity.cpp main.cpp
+SRC = Window.cpp Entity.cpp Player.cpp Time.cpp State.cpp main.cpp
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# makefile (from 'Makefile', line 22)
+# makefile (from 'Makefile', line 25)
 CPPFLAGS = $(addprefix -I, $(INCLDIR))
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
@@ -43,7 +43,7 @@ XMODIFIERS = @im=ibus
 CURDIR := /mnt/nfs/homes/flohrel/code/rush-ft_shmup
 # makefile
 SHELL = /bin/sh
-# makefile (from 'Makefile', line 26)
+# makefile (from 'Makefile', line 29)
 RM = /bin/rm -rf
 # environment
 VTE_VERSION = 6003
@@ -53,29 +53,29 @@ VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupp
 _ = /usr/bin/code
 # environment
 _P9K_TTY = /dev/pts/0
-# makefile (from 'Makefile', line 35)
+# makefile (from 'Makefile', line 38)
 BLUE = \033[1;34m
-# makefile (from 'Makefile', line 24)
+# makefile (from 'Makefile', line 27)
 DEPFLAGS = -MT $@ -MMD -MP -MF $(DEPDIR)/$*.d
 # environment
 JOURNAL_STREAM = 9:423981
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
-# makefile (from 'Makefile', line 56)
+# makefile (from 'Makefile', line 59)
 LEFT_PAD = $(shell printf '%-*.*s' $(PAD_WIDTH) $(PAD_PREC) $(PAD_STR))
 # makefile (from 'Makefile', line 11)
 BUILDIR = build
-# makefile (from 'build/.deps/Window.d', line 1)
-MAKEFILE_LIST :=  Makefile build/.deps/Window.d
+# makefile (from 'build/.deps/main.d', line 1)
+MAKEFILE_LIST :=  Makefile build/.deps/Window.d build/.deps/Entity.d build/.deps/Player.d build/.deps/Time.d build/.deps/State.d build/.deps/main.d
 # automatic
 @F = $(notdir $@)
-# makefile (from 'Makefile', line 54)
+# makefile (from 'Makefile', line 57)
 PAD_CHAR = \*
 # environment
 GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/terminator.desktop
 # 'override' directive
 GNUMAKEFLAGS := 
-# makefile (from 'Makefile', line 21)
+# makefile (from 'Makefile', line 24)
 CXXFLAGS = -Wall -Wextra -Werror -std=c++20 -g3 -fsanitize=address
 # environment
 MANDATORY_PATH = /usr/share/gconf/ubuntu.mandatory.path
@@ -85,7 +85,7 @@ INCLDIR = $(addsuffix /include,$(LIBDIR) .)
 XDG_DATA_DIRS = /usr/share/gnome:/usr/share/ubuntu:/mnt/nfs/homes/flohrel/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
 # environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/39413/bus
-# makefile (from 'Makefile', line 36)
+# makefile (from 'Makefile', line 39)
 MAGENTA = \033[1;35m
 # environment
 MANAGERPID = 55625
@@ -103,7 +103,7 @@ MAKE_HOST := x86_64-pc-linux-gnu
 PATH = /mnt/nfs/homes/flohrel/.local/bin:/mnt/nfs/homes/flohrel/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # environment
 GPG_AGENT_INFO = /run/user/39413/gnupg/S.gpg-agent:0:1
-# makefile (from 'Makefile', line 18)
+# makefile (from 'Makefile', line 21)
 DEP = $(SRC:%.cpp=$(DEPDIR)/%.d)
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
@@ -111,13 +111,13 @@ LSCOLORS = Gxfxcxdxbxegedabagacad
 SESSION_MANAGER = local/e1r2p18.clusters.42paris.fr:@/tmp/.ICE-unix/56139,unix/e1r2p18.clusters.42paris.fr:/tmp/.ICE-unix/56139
 # environment
 XDG_RUNTIME_DIR = /run/user/39413
-# makefile (from 'Makefile', line 42)
+# makefile (from 'Makefile', line 45)
 DELETE = \033[2K
-# makefile (from 'Makefile', line 41)
+# makefile (from 'Makefile', line 44)
 UP = \033[1A
 # makefile (from 'Makefile', line 7)
 VPATH = src
-# makefile (from 'Makefile', line 57)
+# makefile (from 'Makefile', line 60)
 RIGHT_PAD = $(shell printf '%*.*s' $$(($(PAD_WIDTH) + $(NAME_SIZE) % 2)) $(PAD_PREC) $(PAD_STR))
 # environment
 XDG_MENU_PREFIX = gnome-
@@ -125,7 +125,7 @@ XDG_MENU_PREFIX = gnome-
 ELECTRON_RUN_AS_NODE = 1
 # environment
 INVOCATION_ID = bc49ca35160d488795e7363d3bf019b5
-# makefile (from 'Makefile', line 23)
+# makefile (from 'Makefile', line 26)
 LDFLAGS = $(addprefix -l, $(LIBDIR))
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
@@ -153,11 +153,11 @@ PWD = /mnt/nfs/homes/flohrel/code/rush-ft_shmup
 SSH_AGENT_PID = 56089
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
-# makefile (from 'Makefile', line 33)
+# makefile (from 'Makefile', line 36)
 GREEN = \033[1;32m
 # environment
 GTK_MODULES = gail:atk-bridge
-# makefile (from 'Makefile', line 43)
+# makefile (from 'Makefile', line 46)
 DELPREV = $(UP)$(DELETE)\r
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
@@ -171,7 +171,7 @@ VSCODE_CODE_CACHE_PATH = /mnt/nfs/homes/flohrel/.config/Code/CachedData/3b889b09
 LOGNAME = flohrel
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# makefile (from 'Makefile', line 50)
+# makefile (from 'Makefile', line 53)
 HEAD_SIZE = 32
 # environment
 ZSH = /mnt/nfs/homes/flohrel/.oh-my-zsh
@@ -193,9 +193,9 @@ MAKECMDGOALS := all
 QT_IM_MODULE = ibus
 # environment
 SHLVL = 2
-# makefile (from 'Makefile', line 38)
+# makefile (from 'Makefile', line 41)
 WHITE = \033[1;107m
-# makefile (from 'Makefile', line 27)
+# makefile (from 'Makefile', line 30)
 UNAME := Linux
 # environment
 IM_CONFIG_PHASE = 1
@@ -203,9 +203,9 @@ IM_CONFIG_PHASE = 1
 MAKE_VERSION := 4.2.1
 # environment
 USER = flohrel
-# makefile (from 'Makefile', line 47)
+# makefile (from 'Makefile', line 50)
 CROSS = \xE2\x9D\x8C
-# makefile (from 'Makefile', line 46)
+# makefile (from 'Makefile', line 49)
 CHECK = \xE2\x9C\x94
 # makefile
 .DEFAULT_GOAL := all
@@ -223,10 +223,10 @@ LESS = -R
 MAKE_COMMAND := make
 # environment
 OLDPWD = /mnt/nfs/homes/flohrel/code
-# makefile (from 'Makefile', line 51)
+# makefile (from 'Makefile', line 54)
 NAME_SIZE = $(shell NAME='$(NAME)'; printf "$${#NAME}")
 # makefile (from 'Makefile', line 8)
-LIBDIR = ncurses
+LIBDIR = ncursesw
 # environment
 TERMINATOR_DBUS_PATH = /net/tenshu/Terminator2
 # default
@@ -237,7 +237,7 @@ TERMINATOR_DBUS_PATH = /net/tenshu/Terminator2
 XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
 # environment
 VSCODE_IPC_HOOK = /run/user/39413/vscode-408ce30c-1.69.2-main.sock
-# makefile (from 'Makefile', line 32)
+# makefile (from 'Makefile', line 35)
 RED = \033[1;31m
 # makefile
 MAKEFLAGS = pqrR
@@ -245,19 +245,19 @@ MAKEFLAGS = pqrR
 MFLAGS = -pqrR
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
-# makefile (from 'Makefile', line 31)
+# makefile (from 'Makefile', line 34)
 BLACK = \033[1;30m
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
-# makefile (from 'Makefile', line 55)
+# makefile (from 'Makefile', line 58)
 PAD_STR = $(shell printf '$(PAD_CHAR)%.0s' {1..$(PAD_WIDTH)})
-# makefile (from 'Makefile', line 34)
+# makefile (from 'Makefile', line 37)
 YELLOW = \033[1;33m
-# makefile (from 'Makefile', line 53)
+# makefile (from 'Makefile', line 56)
 PAD_PREC = $(shell printf "$$(($(PAD_WIDTH) / 2))")
 # environment
 GDK_BACKEND = x11
-# makefile (from 'Makefile', line 37)
+# makefile (from 'Makefile', line 40)
 CYAN = \033[1;36m
 # automatic
 +F = $(notdir $+)
@@ -273,19 +273,20 @@ MAKEFILES :=
 DEPDIR = $(BUILDIR)/.deps
 # automatic
 <F = $(notdir $<)
-# makefile (from 'Makefile', line 52)
+# makefile (from 'Makefile', line 55)
 PAD_WIDTH = $(shell printf "$$((($(HEAD_SIZE) - $(NAME_SIZE)) / 2))")
-# makefile (from 'Makefile', line 20)
+# makefile (from 'Makefile', line 23)
 CXX = c++
 # environment
 PAGER = less
 # environment
 LC_ALL = C
-# makefile (from 'Makefile', line 30)
+# makefile (from 'Makefile', line 33)
 DEFAULT = \033[0m
+ 
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
-# makefile (from 'Makefile', line 58)
+# makefile (from 'Makefile', line 61)
 BODY_WIDTH = $(shell printf "$$(($(HEAD_SIZE) - 1))")
 # environment
 P9K_TTY = old
@@ -302,7 +303,6 @@ GJS_DEBUG_OUTPUT = stderr
 # makefile (from 'Makefile', line 5)
 NAME = ft_shmup
 # default
- 
 .RECIPEPREFIX := 
 # environment
 LANG = C
@@ -317,7 +317,7 @@ VSCODE_PID = 57721
 # environment
 TERMINATOR_UUID = urn:uuid:b588db80-ec5b-4498-b637-3a4bfff4452f
 # variable set hash-table stats:
-# Load=152/1024=15%, Rehash=0, Collisions=36/224=16%
+# Load=152/1024=15%, Rehash=0, Collisions=36/234=15%
 
 # Pattern-specific Variable Values
 
@@ -325,16 +325,16 @@ TERMINATOR_UUID = urn:uuid:b588db80-ec5b-4498-b637-3a4bfff4452f
 
 # Directories
 
-# . (device 57, inode 195053615): 10 files, no impossibilities.
-# build (device 57, inode 225248456): No files, no impossibilities so far.
-# src (device 57, inode 195053664): 5 files, no impossibilities.
+# . (device 57, inode 195053615): 13 files, no impossibilities.
+# build (device 57, inode 198714722): No files, no impossibilities so far.
+# src (device 57, inode 195053664): No files, no impossibilities so far.
 
-# 15 files, no impossibilities in 3 directories.
+# 13 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
 build/%.o: %.cpp | build/.deps
-#  recipe to execute (from 'Makefile', line 70):
+#  recipe to execute (from 'Makefile', line 73):
 				@printf "$(YELLOW)Compiling $@ and generating/checking make dependency file...$(DEFAULT)\n"
 				@$(CXX) $(DEPFLAGS) $(CXXFLAGS) $(CPPFLAGS) -c $< -o $@
 				@printf '$(DELPREV)%-*s$(GREEN)$(CHECK)$(DEFAULT)\n' $(BODY_WIDTH) $(notdir $@)
@@ -343,8 +343,25 @@ build/%.o: %.cpp | build/.deps
 
 # Files
 
+build/.deps/Time.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-27 16:17:52.233991915
+#  File has been updated.
+#  Successfully updated.
+
+include/State.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-27 16:26:05.847987795
+#  File has been updated.
+#  Successfully updated.
+
 # Not a target:
-build/main.o:
+src/State.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/main.o: src/main.cpp include/Window.hpp include/State.hpp include/Time.hpp include/Player.hpp include/Entity.hpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -370,18 +387,29 @@ all: ft_shmup
 #  Modification time never checked.
 #  File has not been updated.
 
-build/.deps:
-#  Implicit rule search has not been done.
-#  Last modified 2022-08-27 13:39:35.24888434
+include/Time.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-27 16:26:09.946012732
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 80):
+
+# Not a target:
+src/Time.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/.deps:
+#  Implicit rule search has not been done.
+#  Last modified 2022-08-27 16:17:52.909995981
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 83):
 				@printf "$(YELLOW)Creating $@ folder...$(DEFAULT)\n"
 				@mkdir -p $@
 				@printf "$(DELPREV)"
 
-# Not a target:
-build/Entity.o:
+build/Entity.o: src/Entity.cpp include/Entity.hpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -395,16 +423,21 @@ header:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-27 13:39:31.42986103
+#  Last modified 2022-08-27 16:26:15.930049146
 #  File has been updated.
 #  Successfully updated.
 
+build/Player.o: src/Player.cpp include/Player.hpp include/Entity.hpp
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # 'override' directive
 build/Window.o: .SHELLSTATUS := 0
-build/Window.o: src/Window.cpp src/Window.cpp include/Window.hpp | build/.deps
+build/Window.o: src/Window.cpp src/Window.cpp include/Window.hpp include/State.hpp include/Time.hpp include/Player.hpp include/Entity.hpp | build/.deps
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'Window'
-#  Last modified 2022-08-27 13:39:35.247884333
+#  Last modified 2022-08-27 16:17:51.83898954
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
@@ -414,21 +447,26 @@ build/Window.o: src/Window.cpp src/Window.cpp include/Window.hpp | build/.deps
 # automatic
 # * := Window
 # automatic
-# + := src/Window.cpp src/Window.cpp include/Window.hpp
+# + := src/Window.cpp src/Window.cpp include/Window.hpp include/State.hpp include/Time.hpp include/Player.hpp include/Entity.hpp
 # automatic
 # | := build/.deps
 # automatic
 # < := src/Window.cpp
 # automatic
-# ^ := src/Window.cpp include/Window.hpp
+# ^ := src/Window.cpp include/Window.hpp include/State.hpp include/Time.hpp include/Player.hpp include/Entity.hpp
 # automatic
-# ? := include/Window.hpp
+# ? := src/Window.cpp include/Window.hpp include/State.hpp include/Time.hpp include/Player.hpp include/Entity.hpp
 # variable set hash-table stats:
 # Load=9/32=28%, Rehash=0, Collisions=8/39=21%
-#  recipe to execute (from 'Makefile', line 70):
+#  recipe to execute (from 'Makefile', line 73):
 				@printf "$(YELLOW)Compiling $@ and generating/checking make dependency file...$(DEFAULT)\n"
 				@$(CXX) $(DEPFLAGS) $(CXXFLAGS) $(CPPFLAGS) -c $< -o $@
 				@printf '$(DELPREV)%-*s$(GREEN)$(CHECK)$(DEFAULT)\n' $(BODY_WIDTH) $(notdir $@)
+
+build/State.o: src/State.cpp include/State.hpp include/Time.hpp include/Player.hpp include/Entity.hpp
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 bonus:
 #  Phony target (prerequisite of .PHONY).
@@ -441,10 +479,15 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 92):
+#  recipe to execute (from 'Makefile', line 95):
 				@printf "$(YELLOW)Deleting build directory...$(DEFAULT)\n"
 				@$(RM) $(BUILDIR) $(NAME)
 				@printf "$(DELPREV)Build directory and binary deleted\n"
+
+build/Time.o: src/Time.cpp include/Time.hpp
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 lib:
 #  Phony target (prerequisite of .PHONY).
@@ -459,16 +502,17 @@ lib:
 #  File has not been updated.
 
 build/.deps/main.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-08-27 16:17:52.910995987
+#  File has been updated.
+#  Successfully updated.
 
 re: fclean
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 97):
+#  recipe to execute (from 'Makefile', line 100):
 				@$(MAKE) -s all
 
 clean:
@@ -476,49 +520,93 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 87):
+#  recipe to execute (from 'Makefile', line 90):
 				@printf "$(YELLOW)Deleting object and dependency files...$(DEFAULT)\n"
 				@$(RM) $(OBJ)
 				@printf "$(DELPREV)Build files deleted\n"
 
 build/.deps/Entity.d:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-08-27 16:17:51.879989786
+#  File has been updated.
+#  Successfully updated.
 
-ft_shmup: build/Window.o build/Entity.o build/main.o
+ft_shmup: build/Window.o build/Entity.o build/Player.o build/Time.o build/State.o build/main.o
 #  Implicit rule search has not been done.
-#  File does not exist.
+#  Last modified 2022-08-27 16:17:53.165997521
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/24=0%
-#  recipe to execute (from 'Makefile', line 75):
+#  recipe to execute (from 'Makefile', line 78):
 				@printf "$(YELLOW)Linking source files and generating $@ binary...\n$(DEFAULT)"
 				@$(CXX) $(CXXFLAGS) $(CPPFLAGS) -o $@ $^ $(LDFLAGS)
 				@printf "$(DELPREV)$(GREEN)Binary generated$(DEFAULT)\n"
 
-build/.deps/Window.d:
+# Not a target:
+src/main.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/.deps/Player.d:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-27 13:39:35.24888434
+#  Last modified 2022-08-27 16:17:52.204991741
 #  File has been updated.
 #  Successfully updated.
 
+include/Entity.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-27 16:26:10.748017612
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/Entity.cpp:
+ 
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/.deps/Window.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-27 16:17:51.840989552
+#  File has been updated.
+#  Successfully updated.
+
+build/.deps/State.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-27 16:17:52.55899387
+#  File has been updated.
+#  Successfully updated.
+
+include/Player.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-27 16:26:07.70899912
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/Player.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 include/Window.hpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-27 13:39:38.327903132
+#  Last modified 2022-08-27 16:26:09.099007578
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/Window.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-27 12:38:54.964701593
+#  Last modified 2022-08-27 16:26:12.060025596
 #  File has been updated.
 #  Successfully updated.
 
 # files hash-table stats:
-# Load=22/1024=2%, Rehash=0, Collisions=2/70=3%
+# Load=37/1024=4%, Rehash=0, Collisions=2/135=1%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
@@ -526,12 +614,12 @@ src/Window.cpp:
 # General ('VPATH' variable) search path:
 # src
 
-# strcache buffers: 1 (0) / strings = 40 / storage = 384 B / avg = 9 B
-# current buf: size = 8162 B / used = 384 B / count = 40 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 55 / storage = 621 B / avg = 11 B
+# current buf: size = 8162 B / used = 621 B / count = 55 / avg = 11 B
 
-# strcache performance: lookups = 80 / hit rate = 50%
+# strcache performance: lookups = 163 / hit rate = 66%
 # hash-table stats:
-# Load=40/8192=0%, Rehash=0, Collisions=2/80=2%
-# Finished Make data base on Sat Aug 27 13:39:38 2022
+# Load=55/8192=1%, Rehash=0, Collisions=1/163=1%
+# Finished Make data base on Sat Aug 27 16:26:16 2022
 
  
