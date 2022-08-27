@@ -3,6 +3,9 @@
 
 # include <ncurses.h>
 # include <cstdlib>
+# include "State.hpp"
+
+class State;
 
 class Window
 {
@@ -10,6 +13,8 @@ class Window
 public:
 	Window();
 	~Window();
+
+	void	render(State game_state);
 
 	WINDOW*			main;
 	unsigned int	width;

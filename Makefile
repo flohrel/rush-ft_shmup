@@ -5,7 +5,7 @@
 NAME		=	ft_shmup
 
 VPATH		=	src
-LIBDIR		=	ncurses
+LIBDIR		=	ncursesw
 INCLUDE		=
 INCLDIR		=	$(addsuffix /include,$(LIBDIR) .)
 BUILDIR		=	build
@@ -13,6 +13,9 @@ DEPDIR		=	$(BUILDIR)/.deps
 
 SRC			=	Window.cpp \
 				Entity.cpp \
+				Player.cpp \
+				Time.cpp \
+				State.cpp \
 				main.cpp
 OBJ			=	$(SRC:%.cpp=$(BUILDIR)/%.o)
 DEP			=	$(SRC:%.cpp=$(DEPDIR)/%.d)

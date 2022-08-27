@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Player.hpp                                         :+:      :+:    :+:   */
+/*   player.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/27 12:50:04 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/08/27 13:50:38 by tnoulens         ###   ########.fr       */
+/*   Created: 2022/08/27 13:30:32 by tnoulens          #+#    #+#             */
+/*   Updated: 2022/08/27 13:53:13 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __PLAYER__H__
-# define __PLAYER__H__
+#include "Player.hpp"
 
-# include "Entity.hpp"
-# include <ncurses.h>
-# include <string>
-# include <ctime>
+Player::Player()
+: Entity(), dude("")
+{ }
 
-class Player : public Entity
+Player::Player(int x, int y)
+: Entity(x, y)
 {
-
-public:
-	Player();
-	Player(int x, int y);
-
-	const char	*dude;
-
-};
-
-#endif
+	dude = "⯇⯈";
+}

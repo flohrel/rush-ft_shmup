@@ -9,11 +9,8 @@ Window::Window() : width(0), height(0)
 	if (start_color() == ERR)
 		exit(EXIT_FAILURE);
 
-	// intialises use of special keys (F1, arrows, ...)
-	keypad(stdscr, true);
-
 	// getch() is not blocking
-//	nodelay(stdscr, true);
+	nodelay(stdscr, true);
 
 	// don't print char read by getch()
 	noecho();
@@ -38,4 +35,12 @@ Window::~Window()
 	// deallocate memory
     if (endwin() == ERR)
 		exit(EXIT_FAILURE);
+}
+
+void	Window::render(State game_state)
+{
+	werase(main);
+	box(main, 0 , 0);
+	mvwprintw(main, game_state.player.y, game_state.player.x, game_state.player.dude);
+	wrefresh(main);
 }

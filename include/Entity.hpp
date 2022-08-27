@@ -1,6 +1,8 @@
 #ifndef __Entity__H__
 # define __Entity__H__
 
+# include <cstdlib>
+
 class Entity
 {
 
@@ -13,8 +15,8 @@ public:
 	virtual Entity&	operator=( const Entity& rhs );
 	virtual bool		operator==( const Entity& rhs );
 
-	unsigned int	x;
-	unsigned int	y;
+	double	x;
+	double	y;
 
 };
 
