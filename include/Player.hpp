@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 12:50:04 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/08/27 13:02:37 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/08/27 13:05:39 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,17 @@ void	player::mvdown()
 }
 
 void	player::mvleft()
+{
+	xloc--;
+	if (xloc < 1)
+		xloc = 1;
+}
+
+void	player::mvright()
+{
+	xloc++;
+	if (xloc > xmax - 2)
+		xloc = xmax - 2;
+}
 
 #endif
