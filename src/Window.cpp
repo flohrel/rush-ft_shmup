@@ -42,10 +42,9 @@ void	Window::render(State game_state)
 	werase(main);
 	box(main, 0 , 0);
 	mvwprintw(main, game_state.player.y, game_state.player.x, game_state.player.dude.c_str());
-
-	// TEST enemy
-	Enemy e(1, 1);
-	mvwprintw(main, e.y, e.x, e.dude.c_str());
-
+	for (auto e = game_state.enemies.begin(); e != game_state.enemies.end(); e++)
+	{
+		mvwprintw(main, e->y, e->x, e->dude.c_str());
+	}
 	wrefresh(main);
 }

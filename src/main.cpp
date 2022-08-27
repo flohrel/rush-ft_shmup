@@ -79,6 +79,10 @@ int main()
 		game_state.player.x = window.width / 2;
 		game_state.player.y = window.height - 3;
 
+		// TEST enemy
+		Enemy e(window.width / 2, 1);
+		game_state.enemies.push_back(e);
+
 		while (42)
 		{
 			if (game_state.cur_key == 'q')
