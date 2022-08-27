@@ -1,5 +1,6 @@
 # include "Window.hpp"
 # include "State.hpp"
+# include "Define.hpp"
 # include <cstdio>
 # include <charconv>
 # include <cstring>
@@ -71,18 +72,20 @@ int main()
 		if (choice == 10)
 			break;
 	}
-
-	State	game_state;
-
-	while (42)
+	if (highlight == 0)
 	{
-		game_state.cur_key = wgetch(window.main);
-		if (game_state.cur_key == 'q')
-			break ;
-		game_state.update();
-		window.render(game_state);
-		usleep(10000);
+		State	game_state;
+		while (42)
+		{
+			game_state.cur_key = wgetch(window.main);
+			if (game_state.cur_key == 'q')
+				break ;
+			game_state.update();
+			window.render(game_state);
+			usleep(10000);
+		}
 	}
-
+	else if (highlight == 1)
+		exit(0);
 	return (0);
 }
