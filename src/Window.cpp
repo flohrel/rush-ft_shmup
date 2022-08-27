@@ -13,7 +13,7 @@ Window::Window() : width(0), height(0)
 	keypad(stdscr, true);
 
 	// getch() is not blocking
-	//nodelay(stdscr, true);
+	nodelay(stdscr, true);
 
 	// don't print char read by getch()
 	noecho();
@@ -46,5 +46,4 @@ void	Window::render(State game_state)
 	box(main, 0 , 0);
 	mvwprintw(main, game_state.player.y, game_state.player.x, game_state.player.dude);
 	wrefresh(main);
-	game_state.chrono.get_fps();
 }
