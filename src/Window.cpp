@@ -9,9 +9,6 @@ Window::Window() : width(0), height(0)
 	if (start_color() == ERR)
 		exit(EXIT_FAILURE);
 
-	// intialises use of special keys (F1, arrows, ...)
-	keypad(stdscr, true);
-
 	// getch() is not blocking
 	nodelay(stdscr, true);
 

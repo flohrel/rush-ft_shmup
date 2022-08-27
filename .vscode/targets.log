@@ -5,9 +5,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Sat Aug 27 16:26:16 2022
+# Make data base, printed on Sat Aug 27 17:15:11 2022
 
 # Variables
 
@@ -277,13 +276,13 @@ DEPDIR = $(BUILDIR)/.deps
 PAD_WIDTH = $(shell printf "$$((($(HEAD_SIZE) - $(NAME_SIZE)) / 2))")
 # makefile (from 'Makefile', line 23)
 CXX = c++
+ 
 # environment
 PAGER = less
 # environment
 LC_ALL = C
 # makefile (from 'Makefile', line 33)
 DEFAULT = \033[0m
- 
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # makefile (from 'Makefile', line 61)
@@ -345,13 +344,13 @@ build/%.o: %.cpp | build/.deps
 
 build/.deps/Time.d:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-27 16:17:52.233991915
+#  Last modified 2022-08-27 17:14:54.060866864
 #  File has been updated.
 #  Successfully updated.
 
 include/State.hpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-27 16:26:05.847987795
+#  Last modified 2022-08-27 17:13:32.526368929
 #  File has been updated.
 #  Successfully updated.
 
@@ -401,7 +400,7 @@ src/Time.cpp:
 
 build/.deps:
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-27 16:17:52.909995981
+#  Last modified 2022-08-27 17:14:54.793871341
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 83):
@@ -423,7 +422,7 @@ header:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-27 16:26:15.930049146
+#  Last modified 2022-08-27 17:15:11.061970691
 #  File has been updated.
 #  Successfully updated.
 
@@ -437,7 +436,7 @@ build/Window.o: .SHELLSTATUS := 0
 build/Window.o: src/Window.cpp src/Window.cpp include/Window.hpp include/State.hpp include/Time.hpp include/Player.hpp include/Entity.hpp | build/.deps
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'Window'
-#  Last modified 2022-08-27 16:17:51.83898954
+#  Last modified 2022-08-27 17:14:53.646864336
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
@@ -455,7 +454,7 @@ build/Window.o: src/Window.cpp src/Window.cpp include/Window.hpp include/State.h
 # automatic
 # ^ := src/Window.cpp include/Window.hpp include/State.hpp include/Time.hpp include/Player.hpp include/Entity.hpp
 # automatic
-# ? := src/Window.cpp include/Window.hpp include/State.hpp include/Time.hpp include/Player.hpp include/Entity.hpp
+# ? := src/Window.cpp
 # variable set hash-table stats:
 # Load=9/32=28%, Rehash=0, Collisions=8/39=21%
 #  recipe to execute (from 'Makefile', line 73):
@@ -463,7 +462,7 @@ build/Window.o: src/Window.cpp src/Window.cpp include/Window.hpp include/State.h
 				@$(CXX) $(DEPFLAGS) $(CXXFLAGS) $(CPPFLAGS) -c $< -o $@
 				@printf '$(DELPREV)%-*s$(GREEN)$(CHECK)$(DEFAULT)\n' $(BODY_WIDTH) $(notdir $@)
 
-build/State.o: src/State.cpp include/State.hpp include/Time.hpp include/Player.hpp include/Entity.hpp
+build/State.o: src/State.cpp include/State.hpp include/Time.hpp include/Player.hpp include/Entity.hpp include/Window.hpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -503,7 +502,7 @@ lib:
 
 build/.deps/main.d:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-27 16:17:52.910995987
+#  Last modified 2022-08-27 17:14:54.794871347
 #  File has been updated.
 #  Successfully updated.
 
@@ -527,13 +526,13 @@ clean:
 
 build/.deps/Entity.d:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-27 16:17:51.879989786
+#  Last modified 2022-08-27 17:14:53.683864562
 #  File has been updated.
 #  Successfully updated.
 
 ft_shmup: build/Window.o build/Entity.o build/Player.o build/Time.o build/State.o build/main.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-27 16:17:53.165997521
+#  Last modified 2022-08-27 17:14:55.043872868
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -551,38 +550,38 @@ src/main.cpp:
 
 build/.deps/Player.d:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-27 16:17:52.204991741
+#  Last modified 2022-08-27 17:14:54.032866693
 #  File has been updated.
 #  Successfully updated.
 
 include/Entity.hpp:
 #  Implicit rule search has been done.
+ 
 #  Last modified 2022-08-27 16:26:10.748017612
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/Entity.cpp:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 build/.deps/Window.d:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-27 16:17:51.840989552
+#  Last modified 2022-08-27 17:14:53.647864342
 #  File has been updated.
 #  Successfully updated.
 
 build/.deps/State.d:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-27 16:17:52.55899387
+#  Last modified 2022-08-27 17:14:54.420869063
 #  File has been updated.
 #  Successfully updated.
 
 include/Player.hpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-27 16:26:07.70899912
+#  Last modified 2022-08-27 16:46:30.952468972
 #  File has been updated.
 #  Successfully updated.
 
@@ -594,19 +593,19 @@ src/Player.cpp:
 
 include/Window.hpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-27 16:26:09.099007578
+#  Last modified 2022-08-27 17:13:15.494264913
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/Window.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-27 16:26:12.060025596
+#  Last modified 2022-08-27 17:15:08.409954495
 #  File has been updated.
 #  Successfully updated.
 
 # files hash-table stats:
-# Load=37/1024=4%, Rehash=0, Collisions=2/135=1%
+# Load=37/1024=4%, Rehash=0, Collisions=2/137=1%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
@@ -617,9 +616,9 @@ src/Window.cpp:
 # strcache buffers: 1 (0) / strings = 55 / storage = 621 B / avg = 11 B
 # current buf: size = 8162 B / used = 621 B / count = 55 / avg = 11 B
 
-# strcache performance: lookups = 163 / hit rate = 66%
+# strcache performance: lookups = 166 / hit rate = 66%
 # hash-table stats:
-# Load=55/8192=1%, Rehash=0, Collisions=1/163=1%
-# Finished Make data base on Sat Aug 27 16:26:16 2022
+# Load=55/8192=1%, Rehash=0, Collisions=1/166=1%
+# Finished Make data base on Sat Aug 27 17:15:11 2022
 
  
