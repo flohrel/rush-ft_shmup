@@ -10,30 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ncurses.h>
-#include <string>
-#include <cstdlib>
-#include <ctime>
-#include "../include/Player.hpp"
+#include "Player.hpp"
 
-int	main()
+Player::Player()
+: Entity(), dude("")
+{ }
+
+Player::Player(int x, int y)
+: Entity(x, y)
 {
-	initscr();
-	noecho();
-	cbreak();
-	
-	int ymax, xmax;
-	getmaxyx(stdscr, ymax, xmax);
-	WINDOW	*curwin = newwin(20, 50, (ymax / 2) - 10, 10);
-	box(curwin, 0, 0);
-	refresh();
-	wrefresh(curwin);
-	player *p = new player(curwin, 1, 1, 'O');
-	do
-	{
-		p->display();
-		wrefresh(curwin);
-	} while (p->getmv() != 'q');
-	endwin();
-	return (0);
+	dude = "◢◣";
 }
