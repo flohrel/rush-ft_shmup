@@ -86,6 +86,10 @@ int main()
 		}
 	}
 	else if (highlight == 1)
+	{
+		delwin(menu);
+		endwin();
 		exit(0);
+	}
 	return (0);
 }
