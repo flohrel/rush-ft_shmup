@@ -3,20 +3,19 @@
 # include <charconv>
 # include <cstring>
 
+/*
+	- 3 different windows :
+		- game title + keys + menu (play / exit)
+		- game mode (top box with score / life + game box)
+		- game over (score + replay / exit menu)
+
+*/
+
 int main()
 {
 	Window	window;
-	getmaxyx(stdscr, window.height, window.width);
-
-	char buf[20];
-	bzero(buf, 20);
-	std::to_chars(buf, buf + 20, window.width);
-	mvprintw(0, 0, "width = ");
-	printw(buf);
-	bzero(buf, 20);
-	std::to_chars(buf, buf + 20, window.height);
-	mvprintw(1, 0, "height = ");
-	printw(buf);
+	box(window.main, 0 , 0);
+	wrefresh(window.main);
 	getch();
 	return (0);
 }
