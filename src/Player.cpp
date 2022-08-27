@@ -16,6 +16,8 @@ Player::Player()
 : Entity()
 { }
 
-Player::Player(double x, double y, const wchar_t ws[3])
-: Entity(x, y, L"⯇⯈")
-{ }
+Player::Player(double x, double y)
+: Entity(x, y)
+{
+	dude = "⯇⯈";
+}

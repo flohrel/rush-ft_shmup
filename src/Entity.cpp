@@ -1,15 +1,14 @@
 # include "Entity.hpp"
+# include <string.h>
 # include <cwchar>
 
 Entity::Entity( void )
-: x(0), y(0), dude(L"")
+: x(0), y(0), dude("")
 { }
 
-Entity::Entity( double x, double y, const wchar_t ws[3])
+Entity::Entity( double x, double y )
 : x(x), y(y)
-{
-	wcsncpy(dude, ws, 3);
-}
+{ }
 
 Entity::Entity( const Entity& src )
 : x(src.x), y(src.y)

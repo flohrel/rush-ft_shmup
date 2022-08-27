@@ -6,29 +6,30 @@
 # include <cstring>
 # include <ncurses.h>
 # include <string>
-using namespace std;
 # include <locale.h>
 # include <unistd.h>
-
-/*
-	- 3 different windows :
-		- game title + keys + menu (play / exit)
-		- game mode (top box with score / life + game box)
-		- game over (score + replay / exit menu)
-
-*/
+#include <stdlib.h>
+#include <time.h>
+ 
+int return_random(int lower, int upper)
+{
+    int num;
+	srand(time(0));
+	num = (rand() % (upper - lower + 1)) + lower;
+	return (num);
+}
 
 int main()
 {
 	setlocale(LC_ALL, "");
 
-	Window	window;
-	WINDOW	*menu;
-	int		xmax;
-	int		ymax;
-	string 	choices[2] {"NEW GAME", "  EXIT  "};
-	int		choice;
-	int		highlight = 0;
+	Window			window;
+	WINDOW			*menu;
+	int				xmax;
+	int				ymax;
+	std::string 	choices[2] {"NEW GAME", "  EXIT  "};
+	int				choice;
+	int				highlight = 0;
 
 	box(window.main, 0, 0);
 	getmaxyx(window.main, ymax, xmax);
@@ -73,16 +74,26 @@ int main()
 			break;
 	}
 	clear();
+	if (highlight == 0)
 	{
 		State	game_state;
+
+		// start position of player
+		game_state.player.x = window.width / 2;
+		game_state.player.y = window.height - 3;
+
+		// TEST enemy
+		Enemy e(return_random(1, window.width - 2), 1);
+		game_state.enemies.push_back(e);
+
 		while (42)
 		{
-			game_state.cur_key = wgetch(window.main);
 			if (game_state.cur_key == 'q')
 				break ;
 			game_state.update(window);
 			window.render(game_state);
 			usleep(10000);
+			game_state.cur_key = wgetch(window.main);
 		}
 	}
 	else if (highlight == 1)

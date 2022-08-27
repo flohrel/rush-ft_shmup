@@ -14,9 +14,9 @@ DEPDIR		=	$(BUILDIR)/.deps
 SRC			=	Window.cpp \
 				Entity.cpp \
 				Player.cpp \
+				Enemy.cpp \
 				Time.cpp \
 				State.cpp \
-				random.cpp \
 				main.cpp
 OBJ			=	$(SRC:%.cpp=$(BUILDIR)/%.o)
 DEP			=	$(SRC:%.cpp=$(DEPDIR)/%.d)

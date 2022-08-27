@@ -1,8 +1,10 @@
 #ifndef __STATE__H__
 # define __STATE__H__
 
+# include <list>
 # include "Time.hpp"
 # include "Player.hpp"
+# include "Enemy.hpp"
 # include "Window.hpp"
 
 class Window;
@@ -16,10 +18,11 @@ public:
 
 	void	update(Window window);
 
-	Player	player;
-	Time	chrono;
-	wchar_t	cur_key;
-	int		status;
+	Player				player;
+	std::list< Enemy >	enemies;
+	Time				chrono;
+	int					cur_key;
+	int					status;
 	
 };
 

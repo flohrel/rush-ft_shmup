@@ -23,8 +23,9 @@ class Player : public Entity
 
 public:
 	Player();
-	Player(double x, double y, const wchar_t[3]);
+	Player(double x, double y);
 
+	std::string			dude;
 
 };
 
