@@ -24,12 +24,15 @@ int main()
 
 	State	game_state;
 
+	// intialises use of special keys (F1, arrows, ...)
+	keypad(window.main, true);
+
 	while (42)
 	{
 		game_state.cur_key = wgetch(window.main);
 		if (game_state.cur_key == 'q')
 			break ;
-		game_state.update();
+		game_state.update(window);
 		window.render(game_state);
 		usleep(10000);
 	}

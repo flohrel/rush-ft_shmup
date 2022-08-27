@@ -5,6 +5,8 @@
 # include <cstdlib>
 # include "State.hpp"
 
+class State;
+
 class Window
 {
 

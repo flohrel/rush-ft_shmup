@@ -7,21 +7,25 @@ State::State()
 State::~State()
 { }
 
-void	State::update()
+void	State::update(Window window)
 {
 	switch (cur_key)
 	{
 		case 'w':
-			player.y = player.y - 1;
+			if ( --player.y < 0 )
+				player.y++;
 			break ;
 		case 's':
-			player.y = player.y + 1;
+			if ( ++player.y > window.height )
+				player.y--;
 			break ;
 		case 'a':
-			player.x = player.x - 2;
+			if ( (player.x -= 2) < 0 )
+				player.x += 2;
 			break ;
 		case 'd':
-			player.x = player.x + 2;
+			if ( (player.x += 2) > window.width )
+				player.x -= 2;
 			break ;
 		default:
 			break ;

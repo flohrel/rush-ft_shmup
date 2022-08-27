@@ -19,5 +19,5 @@ Player::Player()
 Player::Player(int x, int y)
 : Entity(x, y)
 {
-	dude = "◢◣";
+	dude = "⯇⯈";
 }

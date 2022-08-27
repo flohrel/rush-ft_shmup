@@ -3,17 +3,18 @@
 
 # include "Time.hpp"
 # include "Player.hpp"
+# include "Window.hpp"
+
+class Window;
 
 class State
 {
-
-	friend class Window;
 
 public:
 	State();
 	~State();
 
-	void	update();
+	void	update(Window window);
 
 	Player	player;
 	Time	chrono;
