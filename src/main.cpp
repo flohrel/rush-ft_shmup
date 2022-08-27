@@ -71,9 +71,6 @@ int main()
 		if (choice == 10)
 			break;
 	}
-	getch();
-
-	box(window.main, 0 , 0);
 
 	State	game_state;
 
