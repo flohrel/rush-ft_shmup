@@ -72,7 +72,7 @@ int main()
 		if (choice == 10)
 			break;
 	}
-	if (highlight == 0)
+	clear();
 	{
 		State	game_state;
 		while (42)

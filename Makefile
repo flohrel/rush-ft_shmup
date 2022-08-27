@@ -16,6 +16,7 @@ SRC			=	Window.cpp \
 				Player.cpp \
 				Time.cpp \
 				State.cpp \
+				random.cpp \
 				main.cpp
 OBJ			=	$(SRC:%.cpp=$(BUILDIR)/%.o)
 DEP			=	$(SRC:%.cpp=$(DEPDIR)/%.d)

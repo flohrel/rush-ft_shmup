@@ -1,4 +1,5 @@
 # include "Window.hpp"
+# include <ncurses.h>
 
 Window::Window() : width(0), height(0)
 {

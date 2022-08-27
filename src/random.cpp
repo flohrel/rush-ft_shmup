@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   menu.cpp                                           :+:      :+:    :+:   */
+/*   random.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/27 13:58:39 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/08/27 14:07:58 by tnoulens         ###   ########.fr       */
+/*   Created: 2022/08/27 19:00:56 by tnoulens          #+#    #+#             */
+/*   Updated: 2022/08/27 19:03:47 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ncurses.h>
-#include <string>
-#include <cstdlib>
-#include <ctime>
-
-void	welcome_menu(WINDOW *main)
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+ 
+int return_random(int lower, int upper)
 {
-	int		xmax;
-	int		ymax;
-	WINDOW	*wmenu;
-	
-	getmaxyx(stdscr, ymax, xmax);	
+    int num;
+	num = (rand() % (upper - lower + 1)) + lower;
+	return (num);
 }
