@@ -74,6 +74,11 @@ int main()
 	if (highlight == 0)
 	{
 		State	game_state;
+
+		// start position of player
+		game_state.player.x = window.width / 2;
+		game_state.player.y = window.height - 3;
+
 		while (42)
 		{
 			if (game_state.cur_key == 'q')

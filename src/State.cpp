@@ -1,7 +1,7 @@
 # include "State.hpp"
 
 State::State()
-: player(1, 1), chrono(), cur_key(0)
+: player(0, 0), chrono(), cur_key(0)
 { }
 
 State::~State()

@@ -1,10 +1,12 @@
 # include "Entity.hpp"
+# include <string.h>
+# include <cwchar>
 
 Entity::Entity( void )
-: x(0), y(0)
+: x(0), y(0), dude("")
 { }
 
-Entity::Entity( unsigned int x, unsigned int y )
+Entity::Entity( double x, double y )
 : x(x), y(y)
 { }
 

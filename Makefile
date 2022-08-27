@@ -14,6 +14,7 @@ DEPDIR		=	$(BUILDIR)/.deps
 SRC			=	Window.cpp \
 				Entity.cpp \
 				Player.cpp \
+				Enemy.cpp \
 				Time.cpp \
 				State.cpp \
 				main.cpp
