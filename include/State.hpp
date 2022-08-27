@@ -7,7 +7,7 @@
 class State
 {
 
-	friend Window;
+	friend class Window;
 
 public:
 	State();
@@ -17,7 +17,7 @@ public:
 
 	Player	player;
 	Time	chrono;
-	int		cur_key;
+	wchar_t	cur_key;
 	int		status;
 	
 };

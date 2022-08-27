@@ -11,17 +11,17 @@ void	State::update()
 {
 	switch (cur_key)
 	{
-		case KEY_UP:
-			player.x = player.y - 1;
+		case 'w':
+			player.y = player.y - 1;
 			break ;
-		case KEY_DOWN:
-			player.x = player.y + 1;
+		case 's':
+			player.y = player.y + 1;
 			break ;
-		case KEY_LEFT:
-			player.y = player.x - 2;
+		case 'a':
+			player.x = player.x - 2;
 			break ;
-		case KEY_RIGHT:
-			player.y = player.x + 2;
+		case 'd':
+			player.x = player.x + 2;
 			break ;
 		default:
 			break ;
