@@ -12,6 +12,7 @@ BUILDIR		=	build
 DEPDIR		=	$(BUILDIR)/.deps
 
 SRC			=	Window.cpp \
+				Entity.cpp \
 				main.cpp
 OBJ			=	$(SRC:%.cpp=$(BUILDIR)/%.o)
 DEP			=	$(SRC:%.cpp=$(DEPDIR)/%.d)

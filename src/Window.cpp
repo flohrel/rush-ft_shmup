@@ -1,6 +1,6 @@
 # include "Window.hpp"
 
-Window::Window()
+Window::Window() : width(0), height(0)
 {
 	// sets up memory and clears the screen
 	initscr();
@@ -21,8 +21,16 @@ Window::Window()
 	// disable line buffering without disabling signal processing
 	cbreak();
 
+	// don't show cursor
+	curs_set(false);
+
+	refresh();
+
 	// initialisation of color pairs (fg / bg)
 	init_pair(1, COLOR_BLACK, COLOR_WHITE);
+
+	getmaxyx(stdscr, height, width);
+	main = newwin(height, width, 0, 0);
 }
 
 Window::~Window()

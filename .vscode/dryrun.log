@@ -1,6 +1,15 @@
 make --dry-run --keep-going --print-directory
-make: Entering directory '/home/flohrel/code/rush-ft_shmup'
+make: Entering directory '/mnt/nfs/homes/flohrel/code/rush-ft_shmup'
  
-make: Nothing to be done for 'all'.
-make: Leaving directory '/home/flohrel/code/rush-ft_shmup'
+printf "\033[1;33mCompiling build/Entity.o and generating/checking make dependency file...\033[0m\n"
+c++ -MT build/Entity.o -MMD -MP -MF build/.deps/Entity.d -Wall -Wextra -Werror -std=c++20 -g3 -fsanitize=address -Incurses/include -I./include -c src/Entity.cpp -o build/Entity.o
+printf '\033[1A\033[2K\r%-*s\033[1;32m\xE2\x9C\x94\033[0m\n' 31 Entity.o
+ 
+printf "\033[1;33mCompiling build/main.o and generating/checking make dependency file...\033[0m\n"
+c++ -MT build/main.o -MMD -MP -MF build/.deps/main.d -Wall -Wextra -Werror -std=c++20 -g3 -fsanitize=address -Incurses/include -I./include -c src/main.cpp -o build/main.o
+printf '\033[1A\033[2K\r%-*s\033[1;32m\xE2\x9C\x94\033[0m\n' 31 main.o
+printf "\033[1;33mLinking source files and generating ft_shmup binary...\n\033[0m"
+c++ -Wall -Wextra -Werror -std=c++20 -g3 -fsanitize=address -Incurses/include -I./include -o ft_shmup build/Window.o build/Entity.o build/main.o -lncurses
+printf "\033[1A\033[2K\r\033[1;32mBinary generated\033[0m\n"
+make: Leaving directory '/mnt/nfs/homes/flohrel/code/rush-ft_shmup'
  
