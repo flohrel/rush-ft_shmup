@@ -8,7 +8,7 @@ class Entity
 
 public:
 	Entity();
-	Entity( unsigned int x, unsigned int y );
+	Entity( double x, double y, const wchar_t ws[3] );
 	Entity( const Entity& src );
 	virtual ~Entity();
 
@@ -17,6 +17,7 @@ public:
 
 	double	x;
 	double	y;
+	wchar_t	dude[3];
 
 };
 

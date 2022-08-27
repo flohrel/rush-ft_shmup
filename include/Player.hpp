@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 12:50:04 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/08/27 13:50:38 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/08/27 17:55:49 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@ class Player : public Entity
 
 public:
 	Player();
-	Player(int x, int y);
+	Player(double x, double y, const wchar_t[3]);
 
-	const char	*dude;
 
 };
 
