@@ -1,0 +1,69 @@
+=================================================================
+==341755==ERROR: AddressSanitizer: heap-use-after-free on address 0x60c0000c0580 at pc 0x0000004cee8e bp 0x7fff01cda910 sp 0x7fff01cda908
+READ of size 8 at 0x60c0000c0580 thread T0
+    #0 0x4cee8d in std::_List_iterator<Object>::operator++(int) /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/stl_list.h:227:21
+    #1 0x4d2bbd in State::update() /mnt/nfs/homes/flohrel/code/rush-ft_shmup/src/State.cpp:48:53
+    #2 0x4d5eff in main /mnt/nfs/homes/flohrel/code/rush-ft_shmup/src/main.cpp:81:15
+    #3 0x7f906479b082 in __libc_start_main /build/glibc-SzIz7B/glibc-2.31/csu/../csu/libc-start.c:308:16
+    #4 0x41e53d in _start (/mnt/nfs/homes/flohrel/code/rush-ft_shmup/ft_shmup+0x41e53d)
+
+0x60c0000c0580 is located 0 bytes inside of 120-byte region [0x60c0000c0580,0x60c0000c05f8)
+freed by thread T0 here:
+    #0 0x4cb0bd in operator delete(void*) (/mnt/nfs/homes/flohrel/code/rush-ft_shmup/ft_shmup+0x4cb0bd)
+    #1 0x4d3bcc in __gnu_cxx::new_allocator<std::_List_node<Object> >::deallocate(std::_List_node<Object>*, unsigned long) /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/ext/new_allocator.h:133:2
+    #2 0x4d3b9c in std::allocator<std::_List_node<Object> >::deallocate(std::_List_node<Object>*, unsigned long) /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/allocator.h:187:27
+    #3 0x4d3b9c in std::allocator_traits<std::allocator<std::_List_node<Object> > >::deallocate(std::allocator<std::_List_node<Object> >&, std::_List_node<Object>*, unsigned long) /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/alloc_traits.h:492:13
+    #4 0x4d3ad1 in std::__cxx11::_List_base<Object, std::allocator<Object> >::_M_put_node(std::_List_node<Object>*) /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/stl_list.h:446:9
+    #5 0x4d50df in std::__cxx11::list<Object, std::allocator<Object> >::_M_erase(std::_List_iterator<Object>) /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/stl_list.h:1930:2
+    #6 0x4d3273 in std::__cxx11::list<Object, std::allocator<Object> >::erase(std::_List_const_iterator<Object>) /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/list.tcc:158:7
+    #7 0x4d2b71 in State::update() /mnt/nfs/homes/flohrel/code/rush-ft_shmup/src/State.cpp:60:12
+    #8 0x4d5eff in main /mnt/nfs/homes/flohrel/code/rush-ft_shmup/src/main.cpp:81:15
+    #9 0x7f906479b082 in __libc_start_main /build/glibc-SzIz7B/glibc-2.31/csu/../csu/libc-start.c:308:16
+
+previously allocated by thread T0 here:
+    #0 0x4ca85d in operator new(unsigned long) (/mnt/nfs/homes/flohrel/code/rush-ft_shmup/ft_shmup+0x4ca85d)
+    #1 0x4d4618 in __gnu_cxx::new_allocator<std::_List_node<Object> >::allocate(unsigned long, void const*) /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/ext/new_allocator.h:115:27
+    #2 0x4d45c0 in std::allocator<std::_List_node<Object> >::allocate(unsigned long) /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/allocator.h:173:32
+    #3 0x4d45c0 in std::allocator_traits<std::allocator<std::_List_node<Object> > >::allocate(std::allocator<std::_List_node<Object> >&, unsigned long) /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/alloc_traits.h:460:20
+    #4 0x4d4399 in std::__cxx11::_List_base<Object, std::allocator<Object> >::_M_get_node() /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/stl_list.h:442:16
+    #5 0x4d4194 in std::_List_node<Object>* std::__cxx11::list<Object, std::allocator<Object> >::_M_create_node<Object const&>(Object const&) /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/stl_list.h:634:21
+    #6 0x4d401f in void std::__cxx11::list<Object, std::allocator<Object> >::_M_insert<Object const&>(std::_List_iterator<Object>, Object const&) /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/stl_list.h:1911:18
+    #7 0x4d2fcc in std::__cxx11::list<Object, std::allocator<Object> >::push_back(Object const&) /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/stl_list.h:1212:15
+    #8 0x4d260c in State::update() /mnt/nfs/homes/flohrel/code/rush-ft_shmup/src/State.cpp:42:12
+    #9 0x4d5eff in main /mnt/nfs/homes/flohrel/code/rush-ft_shmup/src/main.cpp:81:15
+    #10 0x7f906479b082 in __libc_start_main /build/glibc-SzIz7B/glibc-2.31/csu/../csu/libc-start.c:308:16
+
+SUMMARY: AddressSanitizer: heap-use-after-free /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/stl_list.h:227:21 in std::_List_iterator<Object>::operator++(int)
+Shadow bytes around the buggy address:
+  0x0c1880010060: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x0c1880010070: fd fd fd fd fd fd fd fa fa fa fa fa fa fa fa fa
+  0x0c1880010080: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fa
+  0x0c1880010090: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x0c18800100a0: fd fd fd fd fd fd fd fa fa fa fa fa fa fa fa fa
+=>0x0c18800100b0:[fd]fd fd fd fd fd fd fd fd fd fd fd fd fd fd fa
+  0x0c18800100c0: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x0c18800100d0: fd fd fd fd fd fd fd fa fa fa fa fa fa fa fa fa
+  0x0c18800100e0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fa
+  0x0c18800100f0: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x0c1880010100: fd fd fd fd fd fd fd fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==341755==ABORTING

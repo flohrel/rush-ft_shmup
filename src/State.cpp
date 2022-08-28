@@ -55,6 +55,12 @@ void	State::update()
 			}
 		}
 		e->y -= (1 * (chrono.frame_time * BULLET_SPEED));
+		if ( e->y < 1 )
+		{
+			auto tmp = e;
+			e--;
+			bullets.erase(tmp);
+		}
 	}
 	cur_key = 0;
 }
