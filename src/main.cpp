@@ -1,6 +1,6 @@
 # include "Window.hpp"
 # include "State.hpp"
-# include "Define.hpp"
+# include "define.hpp"
 # include <cstdio>
 # include <charconv>
 # include <cstring>
@@ -8,8 +8,8 @@
 # include <string>
 # include <locale.h>
 # include <unistd.h>
-#include <stdlib.h>
-#include <time.h>
+# include <stdlib.h>
+# include <time.h>
  
 int return_random(int lower, int upper)
 {
@@ -33,34 +33,33 @@ int main()
 	srand(time(0));
 	while (1)
 	{
-		for (int i = 0; i < 2; i++)
+		for (int i = 0; i < 2; ++i)
 		{
-			{
-				if (i == highlight)
-					wattron(window.main, A_REVERSE);
-				mvwprintw(window.main, i + 9, 26 - 4, choices[i].c_str());
-				wattroff(window.main, A_REVERSE);
-			}
-			choice = wgetch(window.main);
-			switch (choice)
-			{
-			case KEY_UP:
-				highlight--;
-				if (highlight == -1)
-					highlight = 0;
-				break;
-			case KEY_DOWN:
-				highlight++;
-				if (highlight == 2)
-					highlight = 1;
-				break;
-			default:
-				break;
-			}
-			if (choice == 10)
-				break;
+			if (i == highlight)
+				wattron(window.main, A_REVERSE);
+			mvwprintw(window.main, i + 9, 26 - 4, choices[i].c_str());
+			wattroff(window.main, A_REVERSE);
 		}
+		choice = wgetch(window.main);
+		switch (choice)
+		{
+		case KEY_UP:
+			highlight--;
+			if (highlight == -1)
+				highlight = 0;
+			break;
+		case KEY_DOWN:
+			highlight++;
+			if (highlight == 2)
+				highlight = 1;
+			break;
+		default:
+			break;
+		}
+		if (choice == 10)
+			break;
 	}
+	clear();
 	if (highlight == 0)
 	{
 		window.print_board();
@@ -72,7 +71,7 @@ int main()
 		game_state.player.y = HEIGHT - 4;
 
 		// TEST enemy
-		Enemy e(return_random(1, window.width - 2), 1);
+		Enemy e(return_random(1, WIDTH - 2), 1);
 		game_state.enemies.push_back(e);
 
 		while (42)
@@ -87,6 +86,7 @@ int main()
 			{
 				window.print_board();
 			}
+			game_state.chrono.get_fps();
 		}
 	}
 	return (0);

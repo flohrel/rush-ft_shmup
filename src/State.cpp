@@ -2,7 +2,6 @@
 # include "Objects.hpp"
 # include <unistd.h>
 # include <ncurses.h>
-#include "Define.hpp"
 
 
 State::State()
@@ -11,11 +10,6 @@ State::State()
 
 State::~State()
 { }
-
-//chtype getchar_at(int y, int x, WINDOW *main)
-//{
-//	return (mvwinch(main, y, x));
-//}
 
 void	State::update()
 {
@@ -47,7 +41,6 @@ void	State::update()
 			break ;
 		case ' ':
 		{
-			//shoot(player.x, player.y, 0, window.main);
 			Objects e(player.x, player.y - 1);
 			bullets.push_back(e);
 			break;
@@ -57,7 +50,7 @@ void	State::update()
 	}
 	for (auto e = bullets.begin(); e != bullets.end(); e++)
 	{
-		e->y--;
+		e->y -= (1 * (chrono.frame_time * BULLET_SPEED));
 	}
 	cur_key = 0;
 }

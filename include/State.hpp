@@ -2,11 +2,13 @@
 # define __STATE__H__
 
 # include <list>
+# include <unistd.h>
 # include "Time.hpp"
 # include "Player.hpp"
 # include "Enemy.hpp"
 # include "Window.hpp"
 # include "Objects.hpp"
+# include "define.hpp"
 
 class Window;
 

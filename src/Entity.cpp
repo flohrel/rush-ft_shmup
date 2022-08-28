@@ -3,15 +3,15 @@
 # include <cwchar>
 
 Entity::Entity( void )
-: x(0), y(0), dude("")
+: x(0), y(0), dude(""), speed(0)
 { }
 
 Entity::Entity( double x, double y )
-: x(x), y(y)
+: x(x), y(y), speed(0)
 { }
 
 Entity::Entity( const Entity& src )
-: x(src.x), y(src.y)
+: x(src.x), y(src.y), speed(src.speed)
 { }
 
 Entity::~Entity()

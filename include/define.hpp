@@ -16,4 +16,6 @@
 # define LASER_TB '▕'
 # define LASER_SIDE '─'
 
+# define BULLET_SPEED	50
+
 #endif
