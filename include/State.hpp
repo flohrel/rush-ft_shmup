@@ -16,7 +16,7 @@ public:
 	State();
 	~State();
 
-	void	update(Window window);
+	void	update();
 
 	Player				player;
 	std::list< Enemy >	enemies;

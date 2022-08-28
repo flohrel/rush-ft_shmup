@@ -7,7 +7,7 @@ State::State()
 State::~State()
 { }
 
-void	State::update(Window window)
+void	State::update()
 {
 	switch (cur_key)
 	{
@@ -16,7 +16,7 @@ void	State::update(Window window)
 				player.y++;
 			break ;
 		case KEY_DOWN:
-			if ( ++player.y > window.height - 2 )
+			if ( ++player.y > HEIGHT - 2 )
 				player.y--;
 			break ;
 		case KEY_LEFT:
@@ -24,8 +24,8 @@ void	State::update(Window window)
 				player.x = 1;
 			break ;
 		case KEY_RIGHT:
-			if ( (player.x += 2) >= (window.width - 2) )
-				player.x = window.width - 3;
+			if ( (player.x += 2) >= (WIDTH - 2) )
+				player.x = WIDTH - 3;
 			break ;
 		default:
 			break ;
