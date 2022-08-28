@@ -45,6 +45,17 @@ void	State::update()
 		default:
 			break ;
 	}
+	for (auto e = enemies.begin(); e != enemies.end(); e++)
+	{
+		if ( (static_cast<int>(e->x) == static_cast<int>(player.x)
+				|| static_cast<int>(e->x) == static_cast<int>(player.x - 1)
+				|| static_cast<int>(e->x) == static_cast<int>(player.x + 1))
+				&& static_cast<int>(e->y) == static_cast<int>(player.y) )
+		{
+			life = 0;
+		}
+	}
+
 	for (auto e = bullets.begin(); e != bullets.end(); e++)
 	{
 		bool	sry = false;
