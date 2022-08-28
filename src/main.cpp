@@ -64,6 +64,8 @@ int main()
 			if (highlight == 2)
 				highlight = 1;
 			break;
+		case KEY_RESIZE:
+			window.print_header();
 		default:
 			break;
 		}
@@ -79,6 +81,9 @@ int main()
 		game_state.player.x = WIDTH / 2;
 		game_state.player.y = HEIGHT - 4;
 
+		// initiate score to 0;
+		game_state.score = 0;
+
 		// TEST enemy
 		Enemy e(return_random(1, WIDTH - 2), 1);
 		game_state.enemies.push_back(e);
@@ -89,11 +94,13 @@ int main()
 				break ;
 			game_state.update();
 			window.render(game_state);
+			window.print_score(game_state.score);
 			usleep(1000);
 			game_state.cur_key = wgetch(window.main);
 			if (game_state.cur_key == KEY_RESIZE)
 			{
 				window.print_board();
+				window.print_score(game_state.score);
 			}
 			game_state.chrono.get_fps();
 		}

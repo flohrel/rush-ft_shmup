@@ -41,9 +41,9 @@ void	Window::render(State game_state)
 	werase(main);
 	box(main, 0 , 0);
 	mvwprintw(main, game_state.player.y, game_state.player.x, game_state.player.dude.c_str());
-	for (int line = 0; line != 42; line++)
+	for (int line = 1; line != 41; line++)
 	{
-		for (int col = 0; col != 50; col++)
+		for (int col = 1; col != 49; col++)
 		{
 			int	x = col * 2;
 			int y = static_cast<int>(game_state.line) + line;
@@ -108,6 +108,7 @@ void	Window::print_header()
 	mvwprintw(main, 6, 1, "          /_____/    \\/     \\/      \\/      |__|     ");
 	mvwprintw(main, 7, 1, "                 A terminal shooter                  ");
 	wrefresh(main);
+	score = newwin(6, WIDTH, ( (height - HEIGHT) / 2) + HEIGHT, ( (width - WIDTH) / 2));
 }
 
 void	Window::print_board()
@@ -120,4 +121,14 @@ void	Window::print_board()
 	main = newwin(HEIGHT, WIDTH, ( (height - HEIGHT) / 2), ( (width - WIDTH) / 2));
 	keypad(main, true);
 	nodelay(main, true);
+	werase(score);
+	wnoutrefresh(score);
+	score = newwin(6, WIDTH, ( (height - HEIGHT) / 2) + HEIGHT, ( (width - WIDTH) / 2));
+	wrefresh(score);
+}
+
+void	Window::print_score(int points)
+{
+	mvwprintw(score, 0, 0, "CONTROLS: [SPACEBAR]: Shoot | [KEY_ARROWS]: Movement | [q]: Exit   ----   SCORE : %d", points);
+	wrefresh(score);
 }

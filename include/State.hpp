@@ -30,6 +30,7 @@ public:
 	Time					chrono;
 	int						cur_key;
 	double					line;
+	int						score;
 	
 };
 

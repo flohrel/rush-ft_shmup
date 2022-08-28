@@ -19,8 +19,10 @@ public:
 	void	check_term_size();
 	void	print_header();
 	void	print_board();
+	void	print_score(int points);
 
 	WINDOW*			main;
+	WINDOW*			score;
 	unsigned int	width;
 	unsigned int	height;
 

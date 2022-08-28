@@ -47,19 +47,23 @@ void	State::update()
 	}
 	for (auto e = bullets.begin(); e != bullets.end(); e++)
 	{
+		bool	sry = false;
 		for (auto f = enemies.begin(); f != enemies.end(); f++)
 		{ 
-			if (e->x == f->x && e->y == f->y)
+			if ( (static_cast<int>(e->x) == static_cast<int>(f->x) || static_cast<int>(e->x) == static_cast<int>(f->x - 1) || static_cast<int>(e->x) == static_cast<int>(f->x + 1)) && static_cast<int>(e->y) == static_cast<int>(f->y) )
 			{
 				f->alive = false;
+				score += 10;
+				sry = true;
 			}
 		}
 		e->y -= (1 * (chrono.frame_time * BULLET_SPEED));
-		if ( e->y < 1 )
+		if ( e->y < 1 || sry == true)
 		{
 			auto tmp = e;
 			e--;
 			bullets.erase(tmp);
+			sry = false;
 		}
 	}
 	if (line > 1)
