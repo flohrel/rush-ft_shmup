@@ -2,7 +2,7 @@
 
 
 State::State()
-: player(0, 0), chrono(), cur_key(0), line(160 - 42)
+: player(0, 0), chrono(), cur_key(0), line(MAP_HEIGHT - 42)
 { }
 
 State::~State()
@@ -70,6 +70,6 @@ void	State::update()
 		}
 	}
 	if (line > 1)
-		line -= (1 * (chrono.frame_time * BULLET_SPEED));
+		line -= (1 * (chrono.frame_time * MAP_SPEED));
 	cur_key = 0;
 }

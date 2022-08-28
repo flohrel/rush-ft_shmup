@@ -34,7 +34,7 @@ int main()
 	keypad(window.main, true);
 	srand(time(0));
 	std::ifstream infile(MAP_FILE);
-	for ( int i = 161; i != 0; )
+	for ( int i = MAP_HEIGHT; i != 0; )
 	{
 		i--;
 		std::string line;
