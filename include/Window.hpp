@@ -20,7 +20,7 @@ public:
 	void	check_term_size();
 	void	print_header();
 	void	print_board();
-	void	print_score(int points, clock_t t, double time_taken);
+	void	print_score(State game_state, clock_t t, double time_taken);
 
 	WINDOW*			main;
 	WINDOW*			score;

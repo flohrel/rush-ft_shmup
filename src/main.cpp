@@ -83,6 +83,7 @@ int main()
 
 		// initiate score to 0;
 		game_state.score = 0;
+		game_state.life = 1;
 
 		// TEST enemy
 		//Enemy e(return_random(1, WIDTH - 2), 1);
@@ -102,13 +103,13 @@ int main()
 			}
 			game_state.update();
 			window.render(game_state);
-			window.print_score(game_state.score, t, time_taken);
+			window.print_score(game_state, t, time_taken);
 			//usleep(1);
 			game_state.cur_key = wgetch(window.main);
 			if (game_state.cur_key == KEY_RESIZE)
 			{
 				window.print_board();
-				window.print_score(game_state.score, t, time_taken);
+				window.print_score(game_state, t, time_taken);
 			}
 			game_state.chrono.get_fps();
 		}

@@ -130,10 +130,10 @@ void	Window::print_board()
 	wrefresh(score);
 }
 
-void	Window::print_score(int points, clock_t t, double time_taken)
+void	Window::print_score(State game_state, clock_t t, double time_taken)
 {
 	clock_t end = clock();
 	time_taken += ((double)(end - t))/CLOCKS_PER_SEC;
-	mvwprintw(score, 0, 0, "CONTROLS: [SPACEBAR]: Shoot | [KEY_ARROWS]: Movement | [q]: Exit --- SCORE: %d ---  TIME: %.1f", points, time_taken);
+	mvwprintw(score, 0, 0, "[SPACEBAR]: shoot | [KEY_ARROWS]: fly | [q]: Exit -- SCORE: %d -- LIFE: %d -- TIME: %.1f", game_state.score, game_state.life, time_taken);
 	wrefresh(score);
 }
