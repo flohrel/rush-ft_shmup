@@ -29,6 +29,7 @@ public:
 	Time					chrono;
 	int						cur_key;
 	int						status;
+	int						score;
 	
 };
 

@@ -81,6 +81,8 @@ void	Window::print_header()
 	mvwprintw(main, 6, 1, "          /_____/    \\/     \\/      \\/      |__|     ");
 	mvwprintw(main, 7, 1, "                 A terminal shooter                  ");
 	wrefresh(main);
+	score = newwin(6, WIDTH, ( (height - HEIGHT) / 2) + HEIGHT, ( (width - WIDTH) / 2));
+	wrefresh(score);
 }
 
 void	Window::print_board()
@@ -93,4 +95,10 @@ void	Window::print_board()
 	main = newwin(HEIGHT, WIDTH, ( (height - HEIGHT) / 2), ( (width - WIDTH) / 2));
 	keypad(main, true);
 	nodelay(main, true);
+}
+
+void	Window::print_score(int points)
+{
+	mvwprintw(score, 0, 0, "CONTROLS: [SPACEBAR]: Shoot | [KEY_ARROWS]: Movement | [q]: Exit   ----   SCORE : %d", points);
+	wrefresh(score);
 }

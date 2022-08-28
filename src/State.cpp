@@ -49,9 +49,13 @@ void	State::update()
 	{
 		for (auto f = enemies.begin(); f != enemies.end(); f++)
 		{ 
-			if (e->x == f->x && e->y == f->y)
+			if ( static_cast<int>(e->x) == static_cast<int>(f->x) && static_cast<int>(e->y) == static_cast<int>(f->y) )
 			{
 				f->alive = false;
+				score += 10;
+				auto tmp = e;
+				e--;
+				bullets.erase(tmp);
 			}
 		}
 		e->y -= (1 * (chrono.frame_time * BULLET_SPEED));
