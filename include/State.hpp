@@ -6,6 +6,7 @@
 # include "Player.hpp"
 # include "Enemy.hpp"
 # include "Window.hpp"
+# include "Objects.hpp"
 
 class Window;
 
@@ -18,11 +19,12 @@ public:
 
 	void	update();
 
-	Player				player;
-	std::list< Enemy >	enemies;
-	Time				chrono;
-	int					cur_key;
-	int					status;
+	Player					player;
+	std::list< Enemy >		enemies;
+	std::list< Objects >	bullets;
+	Time					chrono;
+	int						cur_key;
+	int						status;
 	
 };
 
