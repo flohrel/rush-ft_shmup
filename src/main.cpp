@@ -12,8 +12,6 @@
 # include <stdlib.h>
 # include <time.h>
 
-# include <iostream>
-
 int return_random(int lower, int upper)
 {
     int num;
@@ -36,14 +34,12 @@ int main()
 	keypad(window.main, true);
 	srand(time(0));
 	std::ifstream infile(MAP_FILE);
-	for (int i = 0; i != 161; i++)
+	for (int i = 161; i != 0; i--)
 	{
 		std::string line;
 		std::getline(infile, line);
-		std::cout << line << std::endl;
 		memcpy(game_state.map[i], line.c_str(), 50);
 	}
-	exit(0);
 	while (1)
 	{
 		for (int i = 0; i < 2; ++i)
