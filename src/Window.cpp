@@ -72,7 +72,10 @@ void	Window::render(State game_state)
 	{ 
 		if (e->alive == false)
 		{
-			mvwprintw(main, e->y, e->x, "XX");
+			auto tmp = e;
+			mvwprintw(main, e->y, e->x, "X");
+			e--;
+			game_state.enemies.erase(tmp);
 		}
 		else
 			mvwprintw(main, e->y, e->x, e->dude.c_str());
@@ -129,6 +132,6 @@ void	Window::print_board()
 
 void	Window::print_score(int points)
 {
-	mvwprintw(score, 0, 0, "CONTROLS: [SPACEBAR]: Shoot | [KEY_ARROWS]: Movement | [q]: Exit   ----   SCORE : %d", points);
+	mvwprintw(score, 0, 0, "CONTROLS: [SPACEBAR]: Shoot | [KEY_ARROWS]: Movement | [q]: Exit   ----   SCORE : %d ---- TIME : %d", points, );
 	wrefresh(score);
 }

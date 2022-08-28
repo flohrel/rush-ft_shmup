@@ -85,13 +85,18 @@ int main()
 		game_state.score = 0;
 
 		// TEST enemy
-		Enemy e(return_random(1, WIDTH - 2), 1);
-		game_state.enemies.push_back(e);
+		//Enemy e(return_random(1, WIDTH - 2), 1);
+		//game_state.enemies.push_back(e);
 
 		while (42)
 		{
 			if (game_state.cur_key == 'q')
 				break ;
+			if (return_random(0, 10000) > 9990)
+			{
+				Enemy e(return_random(1, WIDTH - 2), return_random(1, HEIGHT - 20));
+				game_state.enemies.push_back(e);
+			}
 			game_state.update();
 			window.render(game_state);
 			window.print_score(game_state.score);
