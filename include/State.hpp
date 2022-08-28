@@ -22,13 +22,14 @@ public:
 
 	void	update();
 
+	char					map[MAP_HEIGHT][WIDTH / 2];
 	Player					player;
 	std::list< Enemy >		enemies;
 	std::list< Object >		bullets;
 	std::list< Effect >		effects;
 	Time					chrono;
 	int						cur_key;
-	int						status;
+	double					line;
 	int						score;
 	
 };

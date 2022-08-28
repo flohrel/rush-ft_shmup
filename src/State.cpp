@@ -2,7 +2,7 @@
 
 
 State::State()
-: player(0, 0), chrono(), cur_key(0)
+: player(0, 0), chrono(), cur_key(0), line(160 - 42)
 { }
 
 State::~State()
@@ -47,6 +47,7 @@ void	State::update()
 	}
 	for (auto e = bullets.begin(); e != bullets.end(); e++)
 	{
+		bool	sry = false;
 		for (auto f = enemies.begin(); f != enemies.end(); f++)
 		{ 
 			if ( (static_cast<int>(e->x) == static_cast<int>(f->x)
@@ -56,12 +57,19 @@ void	State::update()
 			{
 				f->alive = false;
 				score += 10;
-				auto tmp = e;
-				e--;
-				bullets.erase(tmp);
+				sry = true;
 			}
 		}
 		e->y -= (1 * (chrono.frame_time * BULLET_SPEED));
+		if ( e->y < 1 || sry == true)
+		{
+			auto tmp = e;
+			e--;
+			bullets.erase(tmp);
+			sry = false;
+		}
 	}
+	if (line > 1)
+		line -= (1 * (chrono.frame_time * BULLET_SPEED));
 	cur_key = 0;
 }

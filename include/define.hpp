@@ -13,10 +13,18 @@
 #ifndef __DEFINE__H__
 # define __DEFINE__H__
 
-# define LASER_TB	'▕'
-# define LASER_SIDE	'─'
-# define EXPLOSION	'X'
+# define LASER_TB		'▕'
+# define LASER_SIDE		'─'
+# define EXPLOSION		'X'
+
+
+# define HEIGHT			42
+# define WIDTH			100
+
+# define MAP_FILE		"map.shmup"
+# define MAP_HEIGHT		161
 
 # define BULLET_SPEED	50
+# define MAP_SPEED		30
 
 #endif

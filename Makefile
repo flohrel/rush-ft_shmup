@@ -5,8 +5,8 @@
 NAME		=	ft_shmup
 
 VPATH		=	src
-LIBDIR		=	ncursesw
-INCLUDE		=
+LIB			=	ncursesw
+LIBDIR		=
 INCLDIR		=	$(addsuffix /include,$(LIBDIR) .)
 BUILDIR		=	build
 DEPDIR		=	$(BUILDIR)/.deps
@@ -26,7 +26,7 @@ DEP			=	$(SRC:%.cpp=$(DEPDIR)/%.d)
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++20 -g3 -fsanitize=address
 CPPFLAGS	=	$(addprefix -I, $(INCLDIR))
-LDFLAGS		=	$(addprefix -l, $(LIBDIR))
+LDFLAGS		=	$(addprefix -L, $(LIBDIR)) $(addprefix -l, $(LIB))
 DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEPDIR)/$*.d
 
 RM			=	/bin/rm -rf

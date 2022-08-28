@@ -4,13 +4,14 @@
 # include <cstdio>
 # include <charconv>
 # include <cstring>
+# include <fstream>
 # include <ncurses.h>
 # include <string>
 # include <locale.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <time.h>
- 
+
 int return_random(int lower, int upper)
 {
     int num;
@@ -24,6 +25,7 @@ int main()
 	setlocale(LC_ALL, "");
 
 	Window			window;
+	State			game_state;
 	std::string 	choices[2] {"NEW GAME", "  EXIT  "};
 	int				choice;
 	int				highlight = 0;
@@ -31,6 +33,15 @@ int main()
 	window.print_header();
 	keypad(window.main, true);
 	srand(time(0));
+	std::ifstream infile(MAP_FILE);
+	for ( int i = 161; i != 0; )
+	{
+		i--;
+		std::string line;
+		std::getline(infile, line);
+		memcpy(game_state.map[i], line.c_str(), 50);
+	}
+	infile.close();
 	while (1)
 	{
 		for (int i = 0; i < 2; ++i)
@@ -65,8 +76,6 @@ int main()
 	if (highlight == 0)
 	{
 		window.print_board();
-
-		State	game_state;
 
 		// start position of player
 		game_state.player.x = WIDTH / 2;

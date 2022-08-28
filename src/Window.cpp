@@ -41,6 +41,33 @@ void	Window::render(State game_state)
 	werase(main);
 	box(main, 0 , 0);
 	mvwprintw(main, game_state.player.y, game_state.player.x, game_state.player.dude.c_str());
+	for (int line = 1; line != 41; line++)
+	{
+		for (int col = 1; col != 49; col++)
+		{
+			int	x = col * 2;
+			int y = static_cast<int>(game_state.line) + line;
+			char c = game_state.map[y][col];
+			switch (c)
+			{
+				case 'X':
+					mvwprintw(main, line, x, "XX");
+					break ;
+				case 'S':
+					mvwprintw(main, line, x, "SS");
+					break ;
+				case '=':
+					mvwprintw(main, line, x, "=");
+					break ;
+				case 'x':
+					mvwprintw(main, line, x, "x");
+					break ;
+				case '.':
+					mvwprintw(main, line, x, ".");
+					break ;
+			}
+		}
+	}
 	for (auto e = game_state.enemies.begin(); e != game_state.enemies.end(); e++)
 	{ 
 		if (e->alive == false)
