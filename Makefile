@@ -17,7 +17,8 @@ SRC			=	Window.cpp \
 				Enemy.cpp \
 				Time.cpp \
 				State.cpp \
-				Objects.cpp\
+				Object.cpp \
+				Effect.cpp \
 				main.cpp
 OBJ			=	$(SRC:%.cpp=$(BUILDIR)/%.o)
 DEP			=	$(SRC:%.cpp=$(DEPDIR)/%.d)

@@ -2,11 +2,14 @@
 # define __STATE__H__
 
 # include <list>
+# include <unistd.h>
 # include "Time.hpp"
 # include "Player.hpp"
 # include "Enemy.hpp"
 # include "Window.hpp"
-# include "Objects.hpp"
+# include "Object.hpp"
+# include "Effect.hpp"
+# include "define.hpp"
 
 class Window;
 
@@ -19,12 +22,13 @@ public:
 
 	void	update();
 
-	Player				player;
-	std::list< Enemy >	enemies;
-	std::list< Objects >	bullets;
-	Time				chrono;
-	int					cur_key;
-	int					status;
+	Player					player;
+	std::list< Enemy >		enemies;
+	std::list< Object >		bullets;
+	std::list< Effect >		effects;
+	Time					chrono;
+	int						cur_key;
+	int						status;
 	
 };
 

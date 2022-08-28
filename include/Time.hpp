@@ -13,7 +13,6 @@ public:
 	double		cur_time;
 	double		old_time;
 	double		frame_time;
-	double		move_speed;
 
 };
 

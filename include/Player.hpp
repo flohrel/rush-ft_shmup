@@ -26,6 +26,7 @@ public:
 	Player(double x, double y);
 
 	std::string			dude;
+	unsigned			speed;
 
 };
 

@@ -1,6 +1,6 @@
 # include "Window.hpp"
 # include "State.hpp"
-# include "Define.hpp"
+# include "define.hpp"
 # include <cstdio>
 # include <charconv>
 # include <cstring>
@@ -86,6 +86,7 @@ int main()
 			{
 				window.print_board();
 			}
+			game_state.chrono.get_fps();
 		}
 	}
 	return (0);

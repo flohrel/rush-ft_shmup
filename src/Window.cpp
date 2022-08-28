@@ -11,9 +11,6 @@ Window::Window() : width(0), height(0)
 	if (start_color() == ERR)
 		exit(EXIT_FAILURE);
 
-	// getch() is not blocking
-	nodelay(main, true);
-
 	// don't print char read by getch()
 	noecho();
 

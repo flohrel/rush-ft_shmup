@@ -1,8 +1,4 @@
 # include "State.hpp"
-# include "Objects.hpp"
-# include <unistd.h>
-# include <ncurses.h>
-# include "Define.hpp"
 
 
 State::State()
@@ -36,11 +32,13 @@ void	State::update()
 			break ;
 		case KEY_RIGHT:
 			if ( (player.x += 2) >= (WIDTH - 2) )
+			{
 				player.x = WIDTH - 3;
+			}
 			break ;
 		case ' ':
 		{
-			Objects e(player.x, player.y - 1);
+			Object e(player.x, player.y - 1);
 			bullets.push_back(e);
 			break;
 		}
@@ -49,7 +47,6 @@ void	State::update()
 	}
 	for (auto e = bullets.begin(); e != bullets.end(); e++)
 	{
-		e->y--;
 		for (auto f = enemies.begin(); f != enemies.end(); f++)
 		{ 
 			if (e->x == f->x && e->y == f->y)
@@ -57,6 +54,7 @@ void	State::update()
 				f->alive = false;
 			}
 		}
+		e->y -= (1 * (chrono.frame_time * BULLET_SPEED));
 	}
 	cur_key = 0;
 }

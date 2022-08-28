@@ -13,7 +13,10 @@
 #ifndef __DEFINE__H__
 # define __DEFINE__H__
 
-# define LASER_TB '▕'
-# define LASER_SIDE '─'
+# define LASER_TB	'▕'
+# define LASER_SIDE	'─'
+# define EXPLOSION	'X'
+
+# define BULLET_SPEED	50
 
 #endif
