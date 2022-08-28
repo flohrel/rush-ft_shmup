@@ -8,8 +8,8 @@
 # include <string>
 # include <locale.h>
 # include <unistd.h>
-#include <stdlib.h>
-#include <time.h>
+# include <stdlib.h>
+# include <time.h>
  
 int return_random(int lower, int upper)
 {
@@ -24,38 +24,22 @@ int main()
 	setlocale(LC_ALL, "");
 
 	Window			window;
-	WINDOW			*menu;
-	int				xmax;
-	int				ymax;
 	std::string 	choices[2] {"NEW GAME", "  EXIT  "};
 	int				choice;
 	int				highlight = 0;
 
-	srand(time(0));
-	box(window.main, 0, 0);
-	getmaxyx(window.main, ymax, xmax);
-	menu = newwin(13, 55, 2, xmax / 2 - 26);
-	box(menu, '*', '*');
-	wrefresh(window.main);
-	mvwprintw(menu, 1, 1, "  _____  __            .__                           ");
-	mvwprintw(menu, 2, 1, "_/ ____\\/  |_     _____|  |__   _____  __ ________   ");
-	mvwprintw(menu, 3, 1, "\\   __\\   __\\   /  ___/  |  \\ /     \\|  |  \\____ \\  ");
-	mvwprintw(menu, 4, 1, " |  |   |  |     \\___ \\|   Y  \\  Y Y  \\  |  /  |_> > ");
-	mvwprintw(menu, 5, 1, " |__|   |__|____/____  >___|  /__|_|  /____/|   __/  ");
-	mvwprintw(menu, 6, 1, "          /_____/    \\/     \\/      \\/      |__|     ");
-	mvwprintw(menu, 7, 1, "                 A terminal shooter                  ");
-	wrefresh(menu);
-	keypad(menu, true);
+	window.print_header();
+	keypad(window.main, true);
 	while (1)
 	{
 		for (int i = 0; i < 2; ++i)
 		{
 			if (i == highlight)
-				wattron(menu, A_REVERSE);
-			mvwprintw(menu, i + 9, 26 - 4, choices[i].c_str());
-			wattroff(menu, A_REVERSE);
+				wattron(window.main, A_REVERSE);
+			mvwprintw(window.main, i + 9, 26 - 4, choices[i].c_str());
+			wattroff(window.main, A_REVERSE);
 		}
-		choice = wgetch(menu);
+		choice = wgetch(window.main);
 		switch (choice)
 		{
 		case KEY_UP:
@@ -77,11 +61,13 @@ int main()
 	clear();
 	if (highlight == 0)
 	{
+		window.print_board();
+
 		State	game_state;
 
 		// start position of player
-		game_state.player.x = window.width / 2;
-		game_state.player.y = window.height - 3;
+		game_state.player.x = WIDTH / 2;
+		game_state.player.y = HEIGHT - 4;
 
 		// TEST enemy
 		Enemy e(return_random(1, window.width - 2), 1);
@@ -91,17 +77,15 @@ int main()
 		{
 			if (game_state.cur_key == 'q')
 				break ;
-			game_state.update(window);
+			game_state.update();
 			window.render(game_state);
-			usleep(10000);
+			usleep(1000);
 			game_state.cur_key = wgetch(window.main);
+			if (game_state.cur_key == KEY_RESIZE)
+			{
+				window.print_board();
+			}
 		}
-	}
-	else if (highlight == 1)
-	{
-		delwin(menu);
-		endwin();
-		exit(0);
 	}
 	return (0);
 }

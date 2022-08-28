@@ -11,7 +11,7 @@ Window::Window() : width(0), height(0)
 		exit(EXIT_FAILURE);
 
 	// getch() is not blocking
-	nodelay(stdscr, true);
+	nodelay(main, true);
 
 	// don't print char read by getch()
 	noecho();
@@ -27,12 +27,12 @@ Window::Window() : width(0), height(0)
 	// initialisation of color pairs (fg / bg)
 	init_pair(1, COLOR_BLACK, COLOR_WHITE);
 
-	getmaxyx(stdscr, height, width);
-	main = newwin(height, width, 0, 0);
+	check_term_size();
 }
 
 Window::~Window()
 {
+	delwin(main);
 	// deallocate memory
     if (endwin() == ERR)
 		exit(EXIT_FAILURE);
@@ -51,5 +51,43 @@ void	Window::render(State game_state)
 	{
 		mvwprintw(main, e->y, e->x, e->dude.c_str());
 	}
+	wnoutrefresh(main);
+	doupdate();
+}
+
+void	Window::check_term_size()
+{
+	getmaxyx(stdscr, height, width);
+	if ( height < HEIGHT || width < WIDTH )
+	{
+		delwin(main);
+		endwin();
+		exit(EXIT_FAILURE);
+	}
+}
+
+void	Window::print_header()
+{
+	main = newwin(13, 55, 2, width / 2 - 26);
+	box(main, '*', '*');
+	mvwprintw(main, 1, 1, "  _____  __            .__                           ");
+	mvwprintw(main, 2, 1, "_/ ____\\/  |_     _____|  |__   _____  __ ________   ");
+	mvwprintw(main, 3, 1, "\\   __\\   __\\   /  ___/  |  \\ /     \\|  |  \\____ \\  ");
+	mvwprintw(main, 4, 1, " |  |   |  |     \\___ \\|   Y  \\  Y Y  \\  |  /  |_> > ");
+	mvwprintw(main, 5, 1, " |__|   |__|____/____  >___|  /__|_|  /____/|   __/  ");
+	mvwprintw(main, 6, 1, "          /_____/    \\/     \\/      \\/      |__|     ");
+	mvwprintw(main, 7, 1, "                 A terminal shooter                  ");
 	wrefresh(main);
+}
+
+void	Window::print_board()
+{
+	werase(main);
+	wnoutrefresh(main);
+	doupdate();
+	delwin(main);
+	check_term_size();
+	main = newwin(HEIGHT, WIDTH, ( (height - HEIGHT) / 2), ( (width - WIDTH) / 2));
+	keypad(main, true);
+	nodelay(main, true);
 }
