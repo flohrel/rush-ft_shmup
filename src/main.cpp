@@ -30,6 +30,7 @@ int main()
 
 	window.print_header();
 	keypad(window.main, true);
+	srand(time(0));
 	while (1)
 	{
 		for (int i = 0; i < 2; ++i)

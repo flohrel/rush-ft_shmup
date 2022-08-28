@@ -24,6 +24,7 @@ void	State::update()
 			break ;
 		case KEY_DOWN:
 			if ( ++player.y > HEIGHT - 2 )
+			{
 				player.y--;
 			}
 			break ;
