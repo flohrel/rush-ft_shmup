@@ -11,19 +11,19 @@ void	State::update(Window window)
 {
 	switch (cur_key)
 	{
-		case 'w':
+		case KEY_UP:
 			if ( --player.y == 0 )
 				player.y++;
 			break ;
-		case 's':
+		case KEY_DOWN:
 			if ( ++player.y > window.height - 2 )
 				player.y--;
 			break ;
-		case 'a':
+		case KEY_LEFT:
 			if ( (player.x -= 2) <= 0 )
 				player.x = 1;
 			break ;
-		case 'd':
+		case KEY_RIGHT:
 			if ( (player.x += 2) >= (window.width - 2) )
 				player.x = window.width - 3;
 			break ;

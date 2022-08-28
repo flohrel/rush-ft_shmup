@@ -83,13 +83,14 @@ int main()
 		Enemy e(window.width / 2, 1);
 		game_state.enemies.push_back(e);
 
+		keypad(window.main, true);
 		while (42)
 		{
 			if (game_state.cur_key == 'q')
 				break ;
 			game_state.update(window);
 			window.render(game_state);
-			usleep(10000);
+			usleep(500);
 			game_state.cur_key = wgetch(window.main);
 		}
 	}
