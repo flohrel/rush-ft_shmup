@@ -4,8 +4,8 @@ Object::Object()
 : Entity()
 { }
 
-Object::Object(double x, double y)
-: Entity(x, y)
+Object::Object(double x, double y, int i)
+: Entity(x, y), origin(i)
 {
 	dude = "▕ ";
 }

@@ -99,7 +99,9 @@ int main()
 			if (return_random(0, 10000) > 9999)
 			{
 				Enemy e(return_random(4, WIDTH - 8), return_random(4, HEIGHT - 20));
+				Object o(e.x, e.y + 2, 1);
 				game_state.enemies.push_back(e);
+				game_state.bullets.push_back(o);
 			}
 			game_state.update();
 			window.render(game_state);
