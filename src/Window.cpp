@@ -105,6 +105,6 @@ void	Window::print_board()
 
 void	Window::print_score(int points)
 {
-	mvwprintw(score, 0, 0, "CONTROLS: [SPACEBAR]: Shoot | [KEY_ARROWS]: Movement | [q]: Exit   ----   SCORE : %d ---- TIME : %d", points, );
+	mvwprintw(score, 0, 0, "CONTROLS: [SPACEBAR]: Shoot | [KEY_ARROWS]: Movement | [q]: Exit   ----   SCORE : %d", points, );
 	wrefresh(score);
 }
