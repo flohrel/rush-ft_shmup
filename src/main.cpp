@@ -71,7 +71,7 @@ int main()
 		game_state.player.y = HEIGHT - 4;
 
 		// TEST enemy
-		Enemy e(return_random(1, window.width - 2), 1);
+		Enemy e(return_random(1, WIDTH - 2), 1);
 		game_state.enemies.push_back(e);
 
 		while (42)

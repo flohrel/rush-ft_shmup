@@ -14,6 +14,7 @@ public:
 	Enemy(double x, double y);
 
 	std::string			dude;
+	bool				alive;
 
 };
 

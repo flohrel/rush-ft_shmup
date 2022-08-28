@@ -5,7 +5,7 @@ Enemy::Enemy()
 { }
 
 Enemy::Enemy(double x, double y)
-: Entity(x, y)
+: Entity(x, y), alive(true)
 {
 	dude = "◹◸";
 }

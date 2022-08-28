@@ -50,6 +50,13 @@ void	State::update()
 	for (auto e = bullets.begin(); e != bullets.end(); e++)
 	{
 		e->y--;
+		for (auto f = enemies.begin(); f != enemies.end(); f++)
+		{ 
+			if (e->x == f->x && e->y == f->y)
+			{
+				f->alive = false;
+			}
+		}
 	}
 	cur_key = 0;
 }

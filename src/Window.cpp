@@ -1,5 +1,6 @@
 # include "Window.hpp"
 # include <ncurses.h>
+# include <unistd.h>
 
 Window::Window() : width(0), height(0)
 {
@@ -45,7 +46,12 @@ void	Window::render(State game_state)
 	mvwprintw(main, game_state.player.y, game_state.player.x, game_state.player.dude.c_str());
 	for (auto e = game_state.enemies.begin(); e != game_state.enemies.end(); e++)
 	{ 
-		mvwprintw(main, e->y, e->x, e->dude.c_str());
+		if (e->alive == false)
+		{
+			mvwprintw(main, e->y, e->x, "XX");
+		}
+		else
+			mvwprintw(main, e->y, e->x, e->dude.c_str());
 	}
 	for (auto e = game_state.bullets.begin(); e != game_state.bullets.end(); e++)
 	{
