@@ -125,8 +125,7 @@ void	Window::print_game_over()
 	mvwprintw(main, 6, 1, "█  █▄▄█ █   ▄   █ ██▄██ █   █▄▄▄   █       ██     ██   █▄▄▄█   █  █ █");
 	mvwprintw(main, 7, 1, "█▄▄▄▄▄▄▄█▄▄█ █▄▄█▄█   █▄█▄▄▄▄▄▄▄█  █▄▄▄▄▄▄▄█ █▄▄▄█ █▄▄▄▄▄▄▄█▄▄▄█  █▄█");
 	wrefresh(main);
-	nodelay(main, true);
-	wgetch(main);
+	sleep(2);
 }
 
 void	Window::print_board()

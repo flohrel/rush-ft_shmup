@@ -98,7 +98,7 @@ int main()
 				break ;
 			if (return_random(0, 10000) > 9999)
 			{
-				Enemy e(return_random(4, WIDTH - 8), return_random(4, HEIGHT - 20));
+				Enemy e(return_random(4, WIDTH - 4), return_random(1, HEIGHT - 20));
 				game_state.enemies.push_back(e);
 			}
 			game_state.update();
@@ -112,7 +112,10 @@ int main()
 				window.print_score(game_state, t, time_taken);
 			}
 			game_state.chrono.get_fps();
+			if (!game_state.life)
+				break ;
 		}
+		window.print_game_over();
 	}
 	return (0);
 }
