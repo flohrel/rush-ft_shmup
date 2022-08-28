@@ -21,7 +21,7 @@ public:
 	std::string			dude;
 	unsigned			speed;
 
-	static int			board[42][50];
+	static char			board[42][50];
 
 };
 

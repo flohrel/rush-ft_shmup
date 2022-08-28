@@ -34,12 +34,14 @@ int main()
 	keypad(window.main, true);
 	srand(time(0));
 	std::ifstream infile(MAP_FILE);
-	for (int i = 161; i != 0; i--)
+	for ( int i = 161; i != 0; )
 	{
+		i--;
 		std::string line;
 		std::getline(infile, line);
 		memcpy(game_state.map[i], line.c_str(), 50);
 	}
+	infile.close();
 	while (1)
 	{
 		for (int i = 0; i < 2; ++i)

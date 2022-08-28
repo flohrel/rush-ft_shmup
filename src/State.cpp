@@ -2,7 +2,7 @@
 
 
 State::State()
-: player(0, 0), chrono(), cur_key(0)
+: player(0, 0), chrono(), cur_key(0), line(160 - 42)
 { }
 
 State::~State()
@@ -62,5 +62,7 @@ void	State::update()
 			bullets.erase(tmp);
 		}
 	}
+	if (line > 1)
+		line -= (1 * (chrono.frame_time * BULLET_SPEED));
 	cur_key = 0;
 }

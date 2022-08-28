@@ -25,5 +25,6 @@
 # define MAP_HEIGHT		161
 
 # define BULLET_SPEED	50
+# define MAP_SPEED		30
 
 #endif
