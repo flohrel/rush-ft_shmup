@@ -53,6 +53,8 @@ int main()
 			if (highlight == 2)
 				highlight = 1;
 			break;
+		case KEY_RESIZE:
+			window.print_header();
 		default:
 			break;
 		}
@@ -89,6 +91,7 @@ int main()
 			if (game_state.cur_key == KEY_RESIZE)
 			{
 				window.print_board();
+				window.print_score(game_state.score);
 			}
 			game_state.chrono.get_fps();
 		}

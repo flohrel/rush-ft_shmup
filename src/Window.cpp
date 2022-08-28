@@ -82,7 +82,6 @@ void	Window::print_header()
 	mvwprintw(main, 7, 1, "                 A terminal shooter                  ");
 	wrefresh(main);
 	score = newwin(6, WIDTH, ( (height - HEIGHT) / 2) + HEIGHT, ( (width - WIDTH) / 2));
-	wrefresh(score);
 }
 
 void	Window::print_board()
@@ -95,6 +94,10 @@ void	Window::print_board()
 	main = newwin(HEIGHT, WIDTH, ( (height - HEIGHT) / 2), ( (width - WIDTH) / 2));
 	keypad(main, true);
 	nodelay(main, true);
+	werase(score);
+	wnoutrefresh(score);
+	score = newwin(6, WIDTH, ( (height - HEIGHT) / 2) + HEIGHT, ( (width - WIDTH) / 2));
+	wrefresh(score);
 }
 
 void	Window::print_score(int points)
