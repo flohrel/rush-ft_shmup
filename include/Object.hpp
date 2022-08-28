@@ -11,10 +11,11 @@ class Object : public Entity
 
 public:
 	Object();
-	Object(double x, double y);
+	Object(double x, double y, int i);
 
 	std::string			dude;
 	unsigned			speed;
+	int					origin;
 
 };
 

@@ -38,7 +38,7 @@ void	State::update()
 			break ;
 		case ' ':
 		{
-			Object e(player.x, player.y - 1);
+			Object e(player.x, player.y - 1, -1);
 			bullets.push_back(e);
 			break;
 		}
@@ -71,7 +71,7 @@ void	State::update()
 				sry = true;
 			}
 		}
-		e->y -= (1 * (chrono.frame_time * BULLET_SPEED));
+		e->y += (e->origin * (chrono.frame_time * BULLET_SPEED));
 		if ( e->y < 1 || sry == true)
 		{
 			auto tmp = e;

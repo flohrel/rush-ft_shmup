@@ -8,7 +8,6 @@
 # include "Enemy.hpp"
 # include "Window.hpp"
 # include "Object.hpp"
-# include "Effect.hpp"
 # include "define.hpp"
 
 class Window;
@@ -26,7 +25,6 @@ public:
 	Player					player;
 	std::list< Enemy >		enemies;
 	std::list< Object >		bullets;
-	std::list< Effect >		effects;
 	Time					chrono;
 	int						cur_key;
 	double					line;

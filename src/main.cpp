@@ -98,8 +98,14 @@ int main()
 				break ;
 			if (return_random(0, 10000) > 9999)
 			{
+<<<<<<< HEAD
 				Enemy e(return_random(4, WIDTH - 4), return_random(1, HEIGHT - 20));
+=======
+				Enemy e(return_random(4, WIDTH - 8), return_random(4, HEIGHT - 20));
+				Object o(e.x, e.y + 2, 1);
+>>>>>>> origin/tno
 				game_state.enemies.push_back(e);
+				game_state.bullets.push_back(o);
 			}
 			game_state.update();
 			window.render(game_state);
