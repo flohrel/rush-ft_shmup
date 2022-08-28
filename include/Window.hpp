@@ -4,9 +4,7 @@
 # include <ncurses.h>
 # include <cstdlib>
 # include "State.hpp"
-
-# define HEIGHT	42
-# define WIDTH	100
+# include "define.hpp"
 
 class State;
 

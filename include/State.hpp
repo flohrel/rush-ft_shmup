@@ -22,6 +22,7 @@ public:
 
 	void	update();
 
+	char					map[MAP_HEIGHT][WIDTH];
 	Player					player;
 	std::list< Enemy >		enemies;
 	std::list< Object >		bullets;
