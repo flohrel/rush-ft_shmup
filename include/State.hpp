@@ -31,6 +31,7 @@ public:
 	int						cur_key;
 	double					line;
 	int						score;
+	short					life;
 	
 };
 
