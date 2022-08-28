@@ -49,7 +49,10 @@ void	State::update()
 	{
 		for (auto f = enemies.begin(); f != enemies.end(); f++)
 		{ 
-			if ( (static_cast<int>(e->x) == static_cast<int>(f->x) || static_cast<int>(e->x) == static_cast<int>(f->x - 1) || static_cast<int>(e->x) == static_cast<int>(f->x + 1)) && static_cast<int>(e->y) == static_cast<int>(f->y) )
+			if ( (static_cast<int>(e->x) == static_cast<int>(f->x)
+				|| static_cast<int>(e->x) == static_cast<int>(f->x - 1)
+				|| static_cast<int>(e->x) == static_cast<int>(f->x + 1))
+				&& static_cast<int>(e->y) == static_cast<int>(f->y) )
 			{
 				f->alive = false;
 				score += 10;
