@@ -21,6 +21,8 @@ public:
 	std::string			dude;
 	unsigned			speed;
 
+	static int			board[42][50];
+
 };
 
 #endif

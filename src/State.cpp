@@ -1,7 +1,4 @@
 # include "State.hpp"
-# include "Objects.hpp"
-# include <unistd.h>
-# include <ncurses.h>
 
 
 State::State()
@@ -41,7 +38,7 @@ void	State::update()
 			break ;
 		case ' ':
 		{
-			Objects e(player.x, player.y - 1);
+			Object e(player.x, player.y - 1);
 			bullets.push_back(e);
 			break;
 		}

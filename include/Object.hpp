@@ -1,17 +1,17 @@
-#ifndef __Objects__H__
-# define __Objects__H__
+#ifndef __OBJECT__H__
+# define __OBJECT__H__
 
 # include "Entity.hpp"
 # include <ncurses.h>
 # include <string>
 # include <ctime>
 
-class Objects : public Entity
+class Object : public Entity
 {
 
 public:
-	Objects();
-	Objects(double x, double y);
+	Object();
+	Object(double x, double y);
 
 	std::string			dude;
 	unsigned			speed;
