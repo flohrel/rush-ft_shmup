@@ -34,7 +34,7 @@ int main()
 	keypad(window.main, true);
 	srand(time(0));
 	std::ifstream infile(MAP_FILE);
-	for ( int i = 161; i != 0; )
+	for ( int i = MAP_HEIGHT; i != 0; )
 	{
 		i--;
 		std::string line;
@@ -85,9 +85,6 @@ int main()
 		game_state.score = 0;
 		game_state.life = 1;
 
-		// TEST enemy
-		//Enemy e(return_random(1, WIDTH - 2), 1);
-		//game_state.enemies.push_back(e);
 		// TIME
 		clock_t t;
 		double time_taken = 0.0;
@@ -106,7 +103,6 @@ int main()
 			game_state.update();
 			window.render(game_state);
 			window.print_score(game_state, t, time_taken);
-			//usleep(1);
 			game_state.cur_key = wgetch(window.main);
 			if (game_state.cur_key == KEY_RESIZE)
 			{
@@ -114,7 +110,10 @@ int main()
 				window.print_score(game_state, t, time_taken);
 			}
 			game_state.chrono.get_fps();
+			if (!game_state.life)
+				break ;
 		}
+		window.print_game_over();
 	}
 	return (0);
 }

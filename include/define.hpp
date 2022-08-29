@@ -22,9 +22,9 @@
 # define WIDTH			100
 
 # define MAP_FILE		"map.shmup"
-# define MAP_HEIGHT		161
+# define MAP_HEIGHT		165
 
 # define BULLET_SPEED	50
-# define MAP_SPEED		30
+# define MAP_SPEED		10
 
 #endif

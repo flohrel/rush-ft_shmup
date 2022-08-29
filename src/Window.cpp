@@ -114,6 +114,20 @@ void	Window::print_header()
 	score = newwin(6, WIDTH, ( (height - HEIGHT) / 2) + HEIGHT, ( (width - WIDTH) / 2));
 }
 
+void	Window::print_game_over()
+{
+	werase(main);
+	mvwprintw(main, 1, 1, " ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄   ▄▄ ▄▄▄▄▄▄▄    ▄▄▄▄▄▄▄ ▄▄   ▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄   ");
+	mvwprintw(main, 2, 1, "█       █       █  █▄█  █       █  █       █  █ █  █       █   ▄  █  ");
+	mvwprintw(main, 3, 1, "█   ▄▄▄▄█   ▄   █       █    ▄▄▄█  █   ▄   █  █▄█  █    ▄▄▄█  █ █ █  ");
+	mvwprintw(main, 4, 1, "█  █  ▄▄█  █▄█  █       █   █▄▄▄   █  █ █  █       █   █▄▄▄█   █▄▄█▄ ");
+	mvwprintw(main, 5, 1, "█  █ █  █       █       █    ▄▄▄█  █  █▄█  █       █    ▄▄▄█    ▄▄  █");
+	mvwprintw(main, 6, 1, "█  █▄▄█ █   ▄   █ ██▄██ █   █▄▄▄   █       ██     ██   █▄▄▄█   █  █ █");
+	mvwprintw(main, 7, 1, "█▄▄▄▄▄▄▄█▄▄█ █▄▄█▄█   █▄█▄▄▄▄▄▄▄█  █▄▄▄▄▄▄▄█ █▄▄▄█ █▄▄▄▄▄▄▄█▄▄▄█  █▄█");
+	wrefresh(main);
+	sleep(2);
+}
+
 void	Window::print_board()
 {
 	werase(main);
